@@ -1,0 +1,30 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid grey;
+    align-items: center;
+}
+
+.header-logo{
+    padding: 2px;
+    width: 80px;
+    height: 80px;
+    
+    
+}
+
+.header-info{
+align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-menu-items{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h1{
+    margin:  0rem 1rem;
+}
