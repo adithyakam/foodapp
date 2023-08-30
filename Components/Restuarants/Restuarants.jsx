@@ -4,6 +4,7 @@ import { apiURL } from '../utils/utils';
 import "./Restuarants.css"
 import SearchBar from '../SearchBar/SearchBar'
 import { data } from '../utils/demo';
+import Shimmer from '../Shimmer/Shimmer';
 
 const Restuarants=()=>{
 
@@ -55,13 +56,13 @@ const filterSearchRestuatrants=()=>{
 
 {
   if(loading){
-  return <h1>loading</h1>
+  return <Shimmer/>
   }
 }
 
   return (
     <>
-    <SearchBar getSearchText={getSearchText} searchtext={searchText}/>
+    {/* <SearchBar getSearchText={getSearchText} searchtext={searchText}/> */}
     <div className='restuarants-container'>
         {
           restuarantList?.map(( {info:{name,areaName,avgRating,cloudinaryImageId,cuisines}} )=>{
