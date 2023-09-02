@@ -1,7 +1,7 @@
 import React from 'react'
 import './RestuarantCard.css'
 import { imageURL } from '../utils/utils';
-import star from '../../assets/star.png';
+import star from '../../assets/star.svg';
 
 function RestuarantCard(props) {
   const {name,area,avgRating,cloudinaryImageId,cuisines} =props
