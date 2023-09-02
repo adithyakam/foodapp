@@ -7,9 +7,9 @@
     align-items: center;
     margin: 20px 5px;
     cursor: pointer;
-    padding: 20px;
     border: none;
-    background-color: rgb(251, 251, 254);
+    /* background-color: rgb(251, 251, 254); */
+
 
     border-radius: 30px;
 }

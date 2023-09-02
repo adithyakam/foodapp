@@ -5,6 +5,7 @@ import "./Restuarants.css"
 import SearchBar from '../SearchBar/SearchBar'
 import { data } from '../utils/demo';
 import Shimmer from '../Shimmer/Shimmer';
+import {Link} from 'react-router-dom'
 
 const Restuarants=()=>{
 
@@ -61,16 +62,16 @@ const filterSearchRestuatrants=()=>{
 }
 
   return (
-    <>
+    <div className='restuarants-main-body'>
     {/* <SearchBar getSearchText={getSearchText} searchtext={searchText}/> */}
     <div className='restuarants-container'>
         {
-          restuarantList?.map(( {info:{name,areaName,avgRating,cloudinaryImageId,cuisines}} )=>{
-          return  <RestuarantCard name={name} key={cloudinaryImageId} area={areaName} avgRating={avgRating} cuisines={cuisines} cloudinaryImageId={cloudinaryImageId}  />
+         restuarantList?.map(( {info:{name,areaName,avgRating,cloudinaryImageId,cuisines,id}} )=>{
+          return  <Link to={'/restuarants/'+id}><RestuarantCard name={name} key={cloudinaryImageId} area={areaName} avgRating={avgRating} cuisines={cuisines} cloudinaryImageId={cloudinaryImageId}  /></Link>
           })
         }
     </div>
-    </>
+    </div>
   )
 }
 
