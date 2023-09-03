@@ -1,31 +1,25 @@
-.shimmer-component{
-    display: flex;
-    flex-wrap: wrap;
+.shimmer-component {
+  display: flex;
+  flex-wrap: wrap;
 
-    justify-content: center;
-    
+  justify-content: center;
 }
 
-
-.shimmer-card{
-    width: 250px;
-    height: 330px;
-    background-color: #eceaea;
-    border-radius: 20px;
-    box-shadow: 11px 10px 10px 2px #c0c0c0;
-    margin: 30px 30px;
-
+.shimmer-card {
+  width: 250px;
+  height: 330px;
+  background-color: #eceaea;
+  border-radius: 20px;
+  box-shadow: 11px 10px 10px 2px #c0c0c0;
+  margin: 30px 30px;
 }
 
-
-.shimmer-img{
-    width: 250px;
-    height: 150px;
-    background-color:#dfdfdf;
-    border-radius: 20px;
-
+.shimmer-img {
+  width: 250px;
+  height: 150px;
+  background-color: #dfdfdf;
+  border-radius: 20px;
 }
 
-.shimmer-content{
- 
+.shimmer-content {
 }

@@ -1,70 +1,65 @@
-.rescards{
-    width: 250px;
-    height: 330px;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 5px;
-    cursor: pointer;
-    border: none;
-    /* background-color: rgb(251, 251, 254); */
+.rescards {
+  width: 250px;
+  height: 330px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 5px;
+  cursor: pointer;
+  border: none;
+  /* background-color: rgb(251, 251, 254); */
 
-
-    border-radius: 30px;
+  border-radius: 30px;
 }
 
-.rescards:hover{
-scale: 1.05;
+.rescards:hover {
+  scale: 1.05;
 }
 
-.rescardTextcontainer{
-
-    align-self: flex-start;
+.rescardTextcontainer {
+  align-self: flex-start;
 }
 
-.rescardimagecontainer{
-    width: 250px;
-    /* height: 250px; */
-    border-radius: 50px;
+.rescardimagecontainer {
+  width: 250px;
+  /* height: 250px; */
+  border-radius: 50px;
 }
 
-.rescardimage{
-   width: 100%;
-   height: 100%;
-    object-fit: fill;
-    border-radius: 30px;
-    box-shadow: 11px 10px 10px 2px #c0c0c0;
+.rescardimage {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 30px;
+  box-shadow: 11px 10px 10px 2px #c0c0c0;
 }
 
-.rescardname{
-    font-size: 18px;
-    font-weight: 800;
+.rescardname {
+  font-size: 18px;
+  font-weight: 800;
 }
 
-.rescardarea{
-    font-size: 10px;
-    font-weight: 400;
-
+.rescardarea {
+  font-size: 10px;
+  font-weight: 400;
 }
 
-.rescardstar{
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+.rescardstar {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
-.rescardrating{
-    font-size: 10px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    
-    align-self: flex-start;
+.rescardrating {
+  font-size: 10px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
 
+  align-self: flex-start;
 }
 
-
-.rescardcuisines{
-    font-size: 10px;
+.rescardcuisines {
+  font-size: 10px;
 }
