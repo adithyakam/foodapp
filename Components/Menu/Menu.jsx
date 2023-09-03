@@ -9,37 +9,54 @@ const Menu = (props) => {
   const {
     info: { name, price, inStock, isVeg, imageId, isBestseller, description },
     isopen,
+    vegonly,
   } = props;
 
-  return (
-    <div className={isopen ? "menu-container" : "menu-container menuclose"}>
-      <div className="menu-content-container">
-        <div className="menu-content-images">
-          {isVeg == 1 ? (
-            <img src={veg} className="menu-content-foodtype" />
-          ) : (
-            <img src={nonveg} className="menu-content-foodtype" />
-          )}
-          <img src={bestseller} className="menu-content-bestseller-image" />
-
-          <h1 className="menu-content-bestseller">Bestseller</h1>
+  const MenuComponent = () => {
+    return (
+      <>
+        <div className={isopen ? "menu-container" : "menu-container menuclose"}>
+          <div className="menu-content-container">
+            <div className="menu-content-images">
+              {isVeg == 1 ? (
+                <img src={veg} className="menu-content-foodtype" />
+              ) : (
+                <img src={nonveg} className="menu-content-foodtype" />
+              )}
+              {isBestseller ? (
+                <>
+                  <img
+                    src={bestseller}
+                    className="menu-content-bestseller-image"
+                  />
+                  <h1 className="menu-content-bestseller">Bestseller</h1>
+                </>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className="menu-content-name">{name}</div>
+            <div className="menu-content-price">Rs {price / 100}</div>
+            <div className="menu-content-description">{description}</div>
+          </div>
+          <div className="menu-image-container">
+            {imageId ? (
+              <img src={`${menuimage}${imageId}`} className="menu-image" />
+            ) : (
+              <></>
+            )}
+            <button
+              className={imageId ? "menu-cart-btn" : "menu-cart-btn-noimage"}
+            >
+              Add
+            </button>
+          </div>
         </div>
-        <div className="menu-content-name">{name}</div>
-        <div className="menu-content-price">Rs {price / 100}</div>
-        <div className="menu-content-description">{description}</div>
-      </div>
-      <div className="menu-image-container">
-        {imageId ? (
-          <img src={`${menuimage}${imageId}`} className="menu-image" />
-        ) : (
-          <></>
-        )}
-        <button className={imageId ? "menu-cart-btn" : "menu-cart-btn-noimage"}>
-          Add
-        </button>
-      </div>
-    </div>
-  );
+      </>
+    );
+  };
+
+  return vegonly ? isVeg ? <MenuComponent /> : null : <MenuComponent />;
 };
 
 export default Menu;

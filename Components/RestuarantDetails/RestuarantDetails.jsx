@@ -9,11 +9,13 @@ import rupee from "../../assets/rupee.svg";
 import time from "../../assets/time.svg";
 import MenuCategory from "../MenuCategory/MenuCategory";
 import { uuid } from "uuidv4";
+import { Toggle } from "../Toggle/Toggle";
 
 function RestuarantDetails() {
   const parms = useParams();
 
-  const [resInfo, setresInfo] = useState(resdata);
+  const [resInfo, setresInfo] = useState(null);
+  const [isveg, setisveg] = useState(false);
 
   const getDetails = async () => {
     await fetch(apiRestuarants + parms.id)
@@ -22,6 +24,12 @@ function RestuarantDetails() {
         setresInfo(res);
       });
   };
+
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  if (resInfo === null) return <Shimmer />;
 
   const {
     info: {
@@ -38,11 +46,7 @@ function RestuarantDetails() {
 
   const { cards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
 
-  useEffect(() => {
-    // getDetails();
-  }, []);
-
-  if (resInfo === null) return <Shimmer />;
+  console.log("Toggled:", isveg);
 
   return (
     <div className="restuarant-detail-container">
@@ -74,12 +78,16 @@ function RestuarantDetails() {
       </div>
       <div className="restuarant-veg-btn-container">
         <h3 className="restuarant-veg">Veg Only</h3>
-        <button>btn</button>
+        <Toggle
+          label="Toggle me"
+          toggled={isveg}
+          onClick={() => setisveg(!isveg)}
+        />
       </div>
       <hr className="restuarant-detail-hr2" />
       <div className="restuarants-menu">
         {cards.slice(1, -2).map((card, i) => {
-          return <MenuCategory key={uuid()} card={card.card} />;
+          return <MenuCategory key={uuid()} card={card.card} isveg={isveg} />;
         })}
       </div>
     </div>

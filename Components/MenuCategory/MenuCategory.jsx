@@ -9,6 +9,7 @@ const MenuCategory = (props) => {
   const [iscategorydropdownopen, setiscategorydropdownopen] = useState(true);
 
   const { title, itemCards } = props.card.card;
+  const { isveg } = props;
 
   const menuOpen = () => {
     setiscategorydropdownopen(!iscategorydropdownopen);
@@ -17,9 +18,7 @@ const MenuCategory = (props) => {
   return (
     <div className="menu-cat-container">
       <div className="menu-cat-titleCard" onClick={() => menuOpen()}>
-        <h1 className="menu-cat-title">
-          {title} ({title.length})
-        </h1>
+        <h1 className="menu-cat-title">{title}</h1>
         {iscategorydropdownopen ? (
           <img src={up} className="rescardstar" />
         ) : (
@@ -33,6 +32,7 @@ const MenuCategory = (props) => {
               key={menu.card.info.id}
               info={menu.card.info}
               isopen={iscategorydropdownopen}
+              vegonly={isveg}
             />
           );
         })}
