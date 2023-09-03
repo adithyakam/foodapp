@@ -48,12 +48,13 @@
   cursor: pointer;
 }
 
-.header-content:hover {
-  color: orange;
-}
-
 .header-content > h1 {
   font-size: 18px;
+  color: rgb(84, 84, 84);
+}
+
+.header-content :hover {
+  color: orange;
 }
 
 .header-logo {

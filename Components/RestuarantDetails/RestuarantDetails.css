@@ -35,9 +35,13 @@
   padding: 4px;
   box-shadow: 0 1px 5px #f9f9f9;
   border-radius: 6px;
-  max-width: 100px;
-  float: right;
+  max-width: 60px;
+  /* float: right; */
   height: 60px;
+}
+
+.restuarant-info-rating-container img {
+  margin-right: 5px;
 }
 
 .restuarant-info-rating {
@@ -49,6 +53,7 @@
   margin: 0;
   padding: 3px;
   justify-content: center;
+  word-spacing: 0.5px;
 }
 
 .restuarant-info-ratingcount {
@@ -66,13 +71,21 @@
   align-items: flex-start;
 }
 
+.restuarant-offers-container img {
+  margin-right: 5px;
+  height: 15px;
+  width: 15px;
+}
+
 .restuarant-offers-time,
 .restuarant-offers-price {
-  font-size: 18px;
+  font-size: 15px;
   display: flex;
   align-items: center;
-  margin: 10px 5px;
-  font-weight: 800;
+  margin: 10px 15px;
+  font-weight: bolder;
+  margin-left: 0px;
+  color: #282626;
 }
 
 .restuarant-detail-hr2 {

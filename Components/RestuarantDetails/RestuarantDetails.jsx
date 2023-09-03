@@ -7,6 +7,8 @@ import { resdata } from "../utils/demo";
 import star from "../../assets/star.svg";
 import rupee from "../../assets/rupee.svg";
 import time from "../../assets/time.svg";
+import MenuCategory from "../MenuCategory/MenuCategory";
+import { uuid } from "uuidv4";
 
 function RestuarantDetails() {
   const parms = useParams();
@@ -33,6 +35,8 @@ function RestuarantDetails() {
       sla: { deliveryTime },
     },
   } = resInfo?.data?.cards[0]?.card?.card;
+
+  const { cards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
 
   useEffect(() => {
     // getDetails();
@@ -61,7 +65,7 @@ function RestuarantDetails() {
       <div className="restuarant-offers-container">
         <h1 className="restuarant-offers-time">
           <img src={time} className="rescardstar" />
-          {deliveryTime}
+          {deliveryTime} MINS
         </h1>
         <h1 className="restuarant-offers-price">
           <img src={rupee} className="rescardstar" />
@@ -73,7 +77,11 @@ function RestuarantDetails() {
         <button>btn</button>
       </div>
       <hr className="restuarant-detail-hr2" />
-      <div className="restuarants-menu"></div>
+      <div className="restuarants-menu">
+        {cards.slice(1, -2).map((card, i) => {
+          return <MenuCategory key={uuid()} card={card.card} />;
+        })}
+      </div>
     </div>
   );
 }

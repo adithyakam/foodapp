@@ -16,6 +16,7 @@ import Help from "./Components/Help/Help";
 import Search from "./Components/Search/Search";
 import Cart from "./Components/Cart/Cart";
 import RestuarantDetails from "./Components/RestuarantDetails/RestuarantDetails";
+import "./App.css";
 
 function App() {
   return (

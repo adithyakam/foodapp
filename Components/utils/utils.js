@@ -5,3 +5,6 @@ export const imageURL =
 
 export const apiRestuarants =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.9301516&lng=75.5452416&restaurantId=";
+
+export const menuimage =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
