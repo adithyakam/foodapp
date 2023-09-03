@@ -1,95 +1,92 @@
-.restuarant-detail-container{
-    width: 50%;
-    margin: auto;
+.restuarant-detail-container {
+  width: 50%;
+  margin: auto;
 }
 
-.resturarnt-info{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 10px;
+.resturarnt-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
 }
 
-
-.restuarant-info-name{
-    font-size: 18px;
-    font-weight: 800;
-    color: #282626;
-
+.restuarant-info-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #282626;
 }
 
-.restuarant-info-content-container{
-margin-left: 0;
+.restuarant-info-content-container {
+  margin-left: 0;
 }
 
-.restuarant-info-cuisines, .restuarant-info-area{
-    font-size: 10px;
-    color: #a7a0a0;
-    font-weight: 100;
-    margin: 10px;
-    margin-left: 0;
+.restuarant-info-cuisines,
+.restuarant-info-area {
+  font-size: 10px;
+  color: #a7a0a0;
+  font-weight: 100;
+  margin: 10px;
+  margin-left: 0;
 }
 
-.restuarant-info-rating-container{
-    border: 1px solid #e9e9eb;
-    padding: 4px;
-    box-shadow: 0 1px 5px #f9f9f9;
-    border-radius: 6px;
-    max-width: 100px;
-    float: right;
-    height: 60px;
+.restuarant-info-rating-container {
+  border: 1px solid #e9e9eb;
+  padding: 4px;
+  box-shadow: 0 1px 5px #f9f9f9;
+  border-radius: 6px;
+  max-width: 100px;
+  float: right;
+  height: 60px;
 }
 
-.restuarant-info-rating{
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    color: green;
-    border-bottom: 1px solid #e9e9eb;
-    margin: 0;
-    padding: 3px;
-    justify-content: center;
+.restuarant-info-rating {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: green;
+  border-bottom: 1px solid #e9e9eb;
+  margin: 0;
+  padding: 3px;
+  justify-content: center;
 }
 
-.restuarant-info-ratingcount{
-    font-size: 10px;
-    color: #a7a0a0;
-    padding: 3px;
-
+.restuarant-info-ratingcount {
+  font-size: 10px;
+  color: #a7a0a0;
+  padding: 3px;
 }
 
-.restuarant-detail-hr{
-    border-top: 0.5px dashed rgb(184, 182, 182);
-
+.restuarant-detail-hr {
+  border-top: 0.5px dashed rgb(184, 182, 182);
 }
 
-.restuarant-offers-container{
-    display: flex;
-    align-items: flex-start;
+.restuarant-offers-container {
+  display: flex;
+  align-items: flex-start;
 }
 
-.restuarant-offers-time, .restuarant-offers-price{
-    font-size: 18px;
-display: flex;
-align-items: center;
-margin: 10px 5px;
-font-weight: 800;
+.restuarant-offers-time,
+.restuarant-offers-price {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin: 10px 5px;
+  font-weight: 800;
 }
 
-.restuarant-detail-hr2{
-    border-top: 0.5px solid rgb(184, 182, 182);
-
+.restuarant-detail-hr2 {
+  border-top: 0.5px solid rgb(184, 182, 182);
 }
 
-.restuarant-veg-btn-container{
-    display: flex;
-    align-items: center;
+.restuarant-veg-btn-container {
+  display: flex;
+  align-items: center;
 }
 
-.restuarant-veg{
-    font-size: 15px;
-    color: #5c5858;
-    font-weight: 600;
-    margin-right: 20px;
+.restuarant-veg {
+  font-size: 15px;
+  color: #5c5858;
+  font-weight: 600;
+  margin-right: 20px;
 }
