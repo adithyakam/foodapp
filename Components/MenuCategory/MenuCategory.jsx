@@ -26,7 +26,7 @@ const MenuCategory = (props) => {
         )}
       </div>
       <div>
-        {itemCards.map((menu) => {
+        {itemCards?.map((menu) => {
           return (
             <Menu
               key={menu.card.info.id}
