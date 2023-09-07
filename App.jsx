@@ -11,12 +11,17 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import About from "./Components/About/About";
-import Help from "./Components/Help/Help";
-import Search from "./Components/Search/Search";
-import Cart from "./Components/Cart/Cart";
+
 import RestuarantDetails from "./Components/RestuarantDetails/RestuarantDetails";
+import { lazy, Suspense } from "react";
+
+const About = lazy(() => import("./Components/About/About"));
+const Help = lazy(() => import("./Components/Help/Help"));
+const Search = lazy(() => import("./Components/Search/Search"));
+const Cart = lazy(() => import("./Components/Cart/Cart"));
+
 import "./App.css";
+import Shimmer from "./Components/Shimmer/Shimmer";
 
 function App() {
   return (
@@ -39,24 +44,44 @@ const Approuter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/help",
-        element: <Help />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Help />
+          </Suspense>
+        ),
       },
       ,
       {
         path: "/search",
-        element: <Search />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Search />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Cart />
+          </Suspense>
+        ),
       },
       {
         path: "/restuarants/:id",
-        element: <RestuarantDetails />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <RestuarantDetails />
+          </Suspense>
+        ),
       },
     ],
   },

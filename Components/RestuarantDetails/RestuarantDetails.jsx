@@ -10,24 +10,15 @@ import time from "../../assets/time.svg";
 import MenuCategory from "../MenuCategory/MenuCategory";
 import { uuid } from "uuidv4";
 import { Toggle } from "../Toggle/Toggle";
+import useFetch from "../utils/useFetch";
 
 function RestuarantDetails() {
   const parms = useParams();
 
-  const [resInfo, setresInfo] = useState(null);
+  const resInfo = useFetch(`${apiRestuarants + parms.id}`);
+
+  // const [resInfo, setresInfo] = useState(null);
   const [isveg, setisveg] = useState(false);
-
-  const getDetails = async () => {
-    await fetch(apiRestuarants + parms.id)
-      .then((res) => res.json())
-      .then((res) => {
-        setresInfo(res);
-      });
-  };
-
-  useEffect(() => {
-    getDetails();
-  }, []);
 
   if (resInfo === null) return <Shimmer />;
 
