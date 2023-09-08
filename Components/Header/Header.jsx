@@ -11,41 +11,43 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="header">
-      <div className="header-info">
-        <img src={logo} className="header-logo-main" />
+    <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
+      <div className="flex justify-around items-center p-4 	">
+        <img src={logo} className=" mr-10" />
         <h1>shimoga</h1>
-        <div className="header-content">
-          <img src={down} className="header-logo" />
+        <div className="">
+          <img src={down} className=" ml-1" />
         </div>
       </div>
-      <div className="header-menu-items">
+      <div className="flex justify-around items-center p-4 ">
         <Link to="/search">
-          <div className="header-content">
-            <img src={search} className="header-logo" /> <h1>Search </h1>
+          <div className="header-content flex m-5 items-center">
+            <img src={search} className="header-logo m-2" />
+            <h1 className="font-bold text-sm">Search </h1>
           </div>
         </Link>
         <Link to="/offer">
-          <div className="header-content">
-            <img src={offer} className="header-logo" /> <h1>Offer </h1>
+          <div className="header-content flex m-5 items-center ">
+            <img src={offer} className="header-logo m-2" />
+            <h1 className="font-bold text-sm">Offer </h1>
           </div>
         </Link>
         <Link to="/help">
-          {" "}
-          <div className="header-content">
-            <img src={help} className="header-logo" /> <h1>Help</h1>
+          <div className="header-content flex m-5 items-center">
+            <img src={help} className="header-logo m-2" />
+            <h1 className="font-bold text-sm">Help</h1>
           </div>
         </Link>
         <Link to="/about">
-          {" "}
-          <div className="header-content">
-            <img src={profile} className="header-logo" /> <h1>About</h1>
+          <div className="header-content flex m-5 items-center">
+            <img src={profile} className="header-logo m-2" />
+            <h1 className="font-bold text-sm">About</h1>
           </div>
         </Link>
         <Link to="/cart">
-          {" "}
-          <div className="header-content">
-            <img src={cart} className="header-logo" /> <h1>Cart</h1>
+          <div className="header-content flex m-5 items-center">
+            <img src={cart} className="header-logo m-2" />{" "}
+            <h1 className="font-bold text-sm">Cart</h1>
           </div>
         </Link>
       </div>
