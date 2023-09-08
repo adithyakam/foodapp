@@ -21,33 +21,33 @@ function Header() {
       </div>
       <div className="flex justify-around items-center p-4 ">
         <Link to="/search">
-          <div className="header-content flex m-5 items-center">
-            <img src={search} className="header-logo m-2" />
-            <h1 className="font-bold text-sm">Search </h1>
+          <div className="header-content flex mx-5 items-center">
+            <img src={search} className="header-logo mx-3" />
+            <h1 className="font-bold text-sm tracking-wider	">Search </h1>
           </div>
         </Link>
         <Link to="/offer">
-          <div className="header-content flex m-5 items-center ">
-            <img src={offer} className="header-logo m-2" />
-            <h1 className="font-bold text-sm">Offer </h1>
+          <div className="header-content flex mx-5 items-center ">
+            <img src={offer} className="header-logo mx-3" />
+            <h1 className="font-bold text-sm tracking-wider	">Offer </h1>
           </div>
         </Link>
         <Link to="/help">
-          <div className="header-content flex m-5 items-center">
-            <img src={help} className="header-logo m-2" />
-            <h1 className="font-bold text-sm">Help</h1>
+          <div className="header-content flex mx-5 items-center">
+            <img src={help} className="header-logo mx-3" />
+            <h1 className="font-bold text-sm tracking-wider	">Help</h1>
           </div>
         </Link>
         <Link to="/about">
-          <div className="header-content flex m-5 items-center">
-            <img src={profile} className="header-logo m-2" />
-            <h1 className="font-bold text-sm">About</h1>
+          <div className="header-content flex mx-5 items-center">
+            <img src={profile} className="header-logo mx-3" />
+            <h1 className="font-bold text-sm tracking-wider	">About</h1>
           </div>
         </Link>
         <Link to="/cart">
-          <div className="header-content flex m-5 items-center">
-            <img src={cart} className="header-logo m-2" />{" "}
-            <h1 className="font-bold text-sm">Cart</h1>
+          <div className="header-content flex mx-5 items-center">
+            <img src={cart} className="header-logo mx-3" />{" "}
+            <h1 className="font-bold text-sm tracking-wider	">Cart</h1>
           </div>
         </Link>
       </div>

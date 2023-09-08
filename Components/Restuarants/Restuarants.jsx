@@ -64,9 +64,9 @@ const Restuarants = () => {
   }
 
   return (
-    <div className="restuarants-main-body">
+    <div className="w-3/4 m-auto mt-8">
       {/* <SearchBar getSearchText={getSearchText} searchtext={searchText}/> */}
-      <div className="restuarants-container">
+      <div className="flex flex-wrap justify-around w-full m-auto">
         {restuarantList?.map(
           ({
             info: {
