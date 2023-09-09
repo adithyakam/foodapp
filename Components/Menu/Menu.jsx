@@ -15,38 +15,48 @@ const Menu = (props) => {
   const MenuComponent = () => {
     return (
       <>
-        <div className={isopen ? "menu-container" : "menu-container menuclose"}>
-          <div className="menu-content-container">
-            <div className="menu-content-images">
+        <div
+          className={
+            isopen
+              ? "flex justify-between py-7 px-0 items-center border-b-2"
+              : "flex justify-between py-7 px-0 items-center border-b-2 hidden invisible menuclose"
+          }
+        >
+          <div className="menu-content-container w-[80%]">
+            <div className="flex flex-row items-center">
               {isVeg == 1 ? (
-                <img src={veg} className="menu-content-foodtype" />
+                <img src={veg} className="h-5 w-5 object-contain" />
               ) : (
-                <img src={nonveg} className="menu-content-foodtype" />
+                <img src={nonveg} className="h-5 w-5 object-contain" />
               )}
               {isBestseller ? (
                 <>
-                  <img
-                    src={bestseller}
-                    className="menu-content-bestseller-image"
-                  />
-                  <h1 className="menu-content-bestseller">Bestseller</h1>
+                  <img src={bestseller} className="h-4 w-4 ml-3" />
+                  <h1 className="text-sm ml-1">Bestseller</h1>
                 </>
               ) : (
                 ""
               )}
             </div>
-            <div className="menu-content-name">{name}</div>
+            <div className="font-extrabold">{name}</div>
             <div className="menu-content-price">Rs {price / 100}</div>
-            <div className="menu-content-description">{description}</div>
+            <div className="text-[8]">{description}</div>
           </div>
-          <div className="menu-image-container">
+          <div className="relative">
             {imageId ? (
-              <img src={`${menuimage}${imageId}`} className="menu-image" />
+              <img
+                src={`${menuimage}${imageId}`}
+                className="h-24 w-32 rounded-md shadow object-cover  "
+              />
             ) : (
               <></>
             )}
             <button
-              className={imageId ? "menu-cart-btn" : "menu-cart-btn-noimage"}
+              className={
+                imageId
+                  ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+                  : "cursor-pointer border-green-300 rounded-md absolute right-4 m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
+              }
             >
               Add
             </button>

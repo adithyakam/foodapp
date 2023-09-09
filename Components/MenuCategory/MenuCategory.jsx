@@ -16,16 +16,19 @@ const MenuCategory = (props) => {
   };
 
   return (
-    <div className="menu-cat-container">
-      <div className="menu-cat-titleCard" onClick={() => menuOpen()}>
-        <h1 className="menu-cat-title">{title}</h1>
+    <div>
+      <div
+        className="flex items-center justify-between cursor-pointer "
+        onClick={() => menuOpen()}
+      >
+        <h1 className="text-lg mb-1 mt-2">{title}</h1>
         {iscategorydropdownopen ? (
-          <img src={up} className="rescardstar" />
+          <img src={up} className="w-4 h-4" />
         ) : (
-          <img src={down} className="rescardstar" />
+          <img src={down} className="w-4 h-4" />
         )}
       </div>
-      <div>
+      <div className="[&>*:nth-last-child(2)]:border-b-0">
         {itemCards?.map((menu) => {
           return (
             <Menu
@@ -36,7 +39,7 @@ const MenuCategory = (props) => {
             />
           );
         })}
-        <div className="menu-cat-divider"></div>
+        <div className="w-full h-5 border-b-8"></div>
       </div>
     </div>
   );
