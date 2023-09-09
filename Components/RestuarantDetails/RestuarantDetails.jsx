@@ -40,43 +40,45 @@ function RestuarantDetails() {
   console.log("Toggled:", isveg);
 
   return (
-    <div className="restuarant-detail-container">
-      <div className="resturarnt-info">
-        <div className="restuarant-info-content-container">
-          <h1 className="restuarant-info-name">{name}</h1>
-          <h5 className="restuarant-info-cuisines">{cuisines.join(", ")}</h5>
-          <h5 className="restuarant-info-area">{areaName}</h5>
+    <div className="w-1/2 m-auto">
+      <div className="flex justify-between items-center mt-4 mt-3">
+        <div className="ml-0">
+          <h1 className="text-base font-bold">{name}</h1>
+          <h5 className="text-xs m-2 ml-0 font-light">{cuisines.join(", ")}</h5>
+          <h5 className="text-xs m-2 ml-0 font-light">{areaName}</h5>
         </div>
-        <div className="restuarant-info-rating-container">
-          <h1 className="restuarant-info-rating">
-            <img src={star} className="rescardstar" />
+        <div className="border-neutral-600 p-1 shadow rounded-md max-w-[70] h-16">
+          <h1 className="text-base flex items-center text-green-600 border-b-2 m-0 p-1 justify-center">
+            <img src={star} className="mr-1" />
             {avgRatingString}
           </h1>
 
-          <h1 className="restuarant-info-ratingcount">{totalRatingsString}</h1>
+          <h1 className="text-[11px] w-full tracking-tighter	p-1">
+            {totalRatingsString}
+          </h1>
         </div>
       </div>
-      <hr className="restuarant-detail-hr" />
-      <div className="restuarant-offers-container">
-        <h1 className="restuarant-offers-time">
-          <img src={time} className="rescardstar" />
+      <hr className="restuarant-detail-hr mt-2" />
+      <div className="flex items-start">
+        <h1 className="text-base flex items-center mx-4 my-3 font-bold ml-0 ">
+          <img src={time} className="mr-3 h-4 w-4" />
           {deliveryTime} MINS
         </h1>
-        <h1 className="restuarant-offers-price">
-          <img src={rupee} className="rescardstar" />
+        <h1 className="text-base flex items-center mx-4 my-3 font-bold ml-0 ">
+          <img src={rupee} className="mr-3 h-4 w-4" />
           {costForTwo / 100} for two
         </h1>
       </div>
-      <div className="restuarant-veg-btn-container">
-        <h3 className="restuarant-veg">Veg Only</h3>
+      <div className="flex  items-start ">
+        <h3 className="text-sm font-semibold mr-2 ">Veg Only</h3>
         <Toggle
           label="Toggle me"
           toggled={isveg}
           onClick={() => setisveg(!isveg)}
         />
       </div>
-      <hr className="restuarant-detail-hr2" />
-      <div className="restuarants-menu">
+      <hr className="restuarant-detail-hr2 mt-2" />
+      <div className="mt-4">
         {cards.slice(1, -2).map((card, i) => {
           return <MenuCategory key={uuid()} card={card.card} isveg={isveg} />;
         })}
