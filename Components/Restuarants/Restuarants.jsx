@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import RestuarantCard from "../RestuarantCard/RestuarantCard";
+import RestuarantCard, {
+  RestuarantCardPopular,
+} from "../RestuarantCard/RestuarantCard";
 import { apiURL } from "../utils/utils";
 import "./Restuarants.css";
 import SearchBar from "../SearchBar/SearchBar";
@@ -78,7 +80,18 @@ const Restuarants = () => {
               id,
             },
           }) => {
-            return (
+            return avgRating > 4 ? (
+              <Link to={"/restuarants/" + id}>
+                <RestuarantCardPopular
+                  name={name}
+                  key={cloudinaryImageId}
+                  area={areaName}
+                  avgRating={avgRating}
+                  cuisines={cuisines}
+                  cloudinaryImageId={cloudinaryImageId}
+                />
+              </Link>
+            ) : (
               <Link to={"/restuarants/" + id}>
                 <RestuarantCard
                   name={name}

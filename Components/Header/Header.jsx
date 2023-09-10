@@ -21,31 +21,31 @@ function Header() {
       </div>
       <div className="flex justify-around items-center p-4 ">
         <Link to="/search">
-          <div className="header-content flex mx-5 items-center">
+          <div className="header-content flex mx-5 items-center hover:text-orange-400">
             <img src={search} className="header-logo mx-3" />
-            <h1 className="font-bold text-sm tracking-wider	">Search </h1>
+            <h1 className="font-bold text-sm tracking-wider  ">Search </h1>
           </div>
         </Link>
         <Link to="/offer">
-          <div className="header-content flex mx-5 items-center ">
+          <div className="header-content flex mx-5 items-center hover:text-orange-400 ">
             <img src={offer} className="header-logo mx-3" />
             <h1 className="font-bold text-sm tracking-wider	">Offer </h1>
           </div>
         </Link>
         <Link to="/help">
-          <div className="header-content flex mx-5 items-center">
+          <div className="header-content flex mx-5 items-center hover:text-orange-400">
             <img src={help} className="header-logo mx-3" />
             <h1 className="font-bold text-sm tracking-wider	">Help</h1>
           </div>
         </Link>
         <Link to="/about">
-          <div className="header-content flex mx-5 items-center">
+          <div className="header-content flex mx-5 items-center hover:text-orange-400">
             <img src={profile} className="header-logo mx-3" />
             <h1 className="font-bold text-sm tracking-wider	">About</h1>
           </div>
         </Link>
         <Link to="/cart">
-          <div className="header-content flex mx-5 items-center">
+          <div className="header-content flex mx-5 items-center hover:text-orange-400">
             <img src={cart} className="header-logo mx-3" />{" "}
             <h1 className="font-bold text-sm tracking-wider	">Cart</h1>
           </div>
