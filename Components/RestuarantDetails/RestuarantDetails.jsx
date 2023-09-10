@@ -7,10 +7,13 @@ import { resdata } from "../utils/demo";
 import star from "../../assets/star.svg";
 import rupee from "../../assets/rupee.svg";
 import time from "../../assets/time.svg";
+import offer from "../../assets/offers.svg";
+
 import MenuCategory from "../MenuCategory/MenuCategory";
 import { uuid } from "uuidv4";
 import { Toggle } from "../Toggle/Toggle";
 import useFetch from "../utils/useFetch";
+// import offerlogo from "../../assets/offers.svg";
 
 function RestuarantDetails() {
   const parms = useParams();
@@ -36,8 +39,10 @@ function RestuarantDetails() {
   } = resInfo?.data?.cards[0]?.card?.card;
 
   const { cards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
+  const { offers } =
+    resInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
 
-  console.log("Toggled:", isveg);
+  console.log("card:", offers);
 
   return (
     <div className="w-1/2 m-auto">
@@ -59,7 +64,7 @@ function RestuarantDetails() {
         </div>
       </div>
       <hr className="restuarant-detail-hr mt-2" />
-      <div className="flex items-start">
+      <div className="flex items-start ">
         <h1 className="text-base flex items-center mx-4 my-3 font-bold ml-0 ">
           <img src={time} className="mr-3 h-4 w-4" />
           {deliveryTime} MINS
@@ -68,6 +73,25 @@ function RestuarantDetails() {
           <img src={rupee} className="mr-3 h-4 w-4" />
           {costForTwo / 100} for two
         </h1>
+      </div>
+      <div className="flex overflow-x-scroll flex-no-wrap items-start  no-scrollbar">
+        {offers.map((data) => {
+          return (
+            <div className="w-90 h-15 border p-2 border-black mr-5 flex-none ">
+              <div className="flex items-center">
+                <img src={offer} className="w-6 h-6" />
+                <h3 className="text-[12px] font-semibold ml-2 break-keep">
+                  {data.info.header}
+                </h3>
+              </div>
+              <div className="flex items-center">
+                <h3 className="text-[6px]">
+                  {data.info.couponCode} |{data.info.description}
+                </h3>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className="flex  items-start ">
         <h3 className="text-sm font-semibold mr-2 ">Veg Only</h3>
