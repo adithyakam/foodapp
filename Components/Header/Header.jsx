@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import offer from "../../assets/offers.svg";
@@ -8,8 +8,11 @@ import cart from "../../assets/cart.svg";
 import search from "../../assets/search.svg";
 import down from "../../assets/down.svg";
 import { Link } from "react-router-dom";
+import { userContext } from "../utils/userContext";
 
 function Header() {
+  const { fn, ln } = useContext(userContext);
+
   return (
     <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
       <div className="flex justify-around items-center p-4 	">
@@ -41,7 +44,9 @@ function Header() {
         <Link to="/about">
           <div className="header-content flex mx-5 items-center hover:text-orange-400">
             <img src={profile} className="header-logo mx-3" />
-            <h1 className="font-bold text-sm tracking-wider	">About</h1>
+            <h1 className="font-bold text-sm tracking-wider	">
+              {fn},{ln}
+            </h1>
           </div>
         </Link>
         <Link to="/cart">

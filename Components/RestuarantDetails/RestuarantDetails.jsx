@@ -74,18 +74,18 @@ function RestuarantDetails() {
           {costForTwo / 100} for two
         </h1>
       </div>
-      <div className="flex overflow-x-scroll flex-no-wrap items-start  no-scrollbar">
+      <div className="flex overflow-x-scroll flex-no-wrap items-start  no-scrollbar mb-4 p-2">
         {offers.map((data) => {
           return (
-            <div className="w-90 h-15 border p-2 border-black mr-5 flex-none ">
+            <div className="w-90 h-15  p-2 	border-1	mr-5 flex-none shadow-md">
               <div className="flex items-center">
-                <img src={offer} className="w-6 h-6" />
-                <h3 className="text-[12px] font-semibold ml-2 break-keep">
+                <img src={offer} className="w-6 h-6 text-orange-900" />
+                <h3 className="text-[12px] font-semibold ml-2 break-keep  text-orange-900">
                   {data.info.header}
                 </h3>
               </div>
               <div className="flex items-center">
-                <h3 className="text-[6px]">
+                <h3 className="text-[10px] ">
                   {data.info.couponCode} |{data.info.description}
                 </h3>
               </div>
