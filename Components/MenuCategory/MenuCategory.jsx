@@ -6,20 +6,14 @@ import down from "../../assets/down.svg";
 import Menu from "../Menu/Menu";
 
 const MenuCategory = (props) => {
-  const [iscategorydropdownopen, setiscategorydropdownopen] = useState(false);
-
   const { title, itemCards } = props.card.card;
-  const { isveg } = props;
-
-  const menuOpen = () => {
-    setiscategorydropdownopen(!iscategorydropdownopen);
-  };
+  const { isveg, iscategorydropdownopen, menuOpen, index } = props;
 
   return (
     <div>
       <div
         className="flex items-center justify-between cursor-pointer "
-        onClick={() => menuOpen()}
+        onClick={() => menuOpen(index)}
       >
         <h1 className="text-lg mb-1 mt-2">{title}</h1>
         {iscategorydropdownopen ? (
@@ -32,7 +26,7 @@ const MenuCategory = (props) => {
         {itemCards?.map((menu) => {
           return (
             <Menu
-              key={menu.card.info.id}
+              key={menu.card.info.name}
               info={menu.card.info}
               isopen={iscategorydropdownopen}
               vegonly={isveg}

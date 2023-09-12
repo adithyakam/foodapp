@@ -22,6 +22,16 @@ function RestuarantDetails() {
 
   // const [resInfo, setresInfo] = useState(null);
   const [isveg, setisveg] = useState(false);
+  const [categoryitemindex, setcategoryitemindex] = useState(0);
+  const [iscategorydropdownopen, setiscategorydropdownopen] = useState(false);
+
+  const menuOpen = (index) => {
+    console.log(index, categoryitemindex);
+
+    index == categoryitemindex
+      ? setcategoryitemindex(-1)
+      : setcategoryitemindex(index);
+  };
 
   if (resInfo === null) return <Shimmer />;
 
@@ -41,8 +51,6 @@ function RestuarantDetails() {
   const { cards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   const { offers } =
     resInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
-
-  console.log("card:", offers);
 
   return (
     <div className="w-1/2 m-auto">
@@ -77,7 +85,10 @@ function RestuarantDetails() {
       <div className="flex overflow-x-scroll flex-no-wrap items-start  no-scrollbar mb-4 p-2">
         {offers.map((data) => {
           return (
-            <div className="w-90 h-15  p-2 	border-1	mr-5 flex-none shadow-md">
+            <div
+              className="w-90 h-15  p-2 	border-1	mr-5 flex-none shadow-md"
+              key={data.info.header}
+            >
               <div className="flex items-center">
                 <img src={offer} className="w-6 h-6 text-orange-900" />
                 <h3 className="text-[12px] font-semibold ml-2 break-keep  text-orange-900">
@@ -104,7 +115,16 @@ function RestuarantDetails() {
       <hr className="restuarant-detail-hr2 mt-2" />
       <div className="mt-4">
         {cards.slice(1, -2).map((card, i) => {
-          return <MenuCategory key={uuid()} card={card.card} isveg={isveg} />;
+          return (
+            <MenuCategory
+              key={card.card.card.title}
+              card={card.card}
+              isveg={isveg}
+              menuOpen={menuOpen}
+              index={i}
+              iscategorydropdownopen={i == categoryitemindex ? true : false}
+            />
+          );
         })}
       </div>
     </div>

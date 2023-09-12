@@ -36,13 +36,11 @@ const Restuarants = () => {
           res.data?.cards[5].card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
-        console.log(restuarants);
         setloading(false);
         setrestuarantList(
           res.data?.cards[5].card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
-        // console.log(restuarantList,"reslist");
       });
   };
 
@@ -84,7 +82,7 @@ const Restuarants = () => {
               <Link to={"/restuarants/" + id}>
                 <RestuarantCardPopular
                   name={name}
-                  key={cloudinaryImageId}
+                  key={name}
                   area={areaName}
                   avgRating={avgRating}
                   cuisines={cuisines}
@@ -95,7 +93,7 @@ const Restuarants = () => {
               <Link to={"/restuarants/" + id}>
                 <RestuarantCard
                   name={name}
-                  key={cloudinaryImageId}
+                  key={name}
                   area={areaName}
                   avgRating={avgRating}
                   cuisines={cuisines}
