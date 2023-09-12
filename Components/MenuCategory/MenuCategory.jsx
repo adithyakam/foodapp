@@ -6,7 +6,7 @@ import down from "../../assets/down.svg";
 import Menu from "../Menu/Menu";
 
 const MenuCategory = (props) => {
-  const [iscategorydropdownopen, setiscategorydropdownopen] = useState(true);
+  const [iscategorydropdownopen, setiscategorydropdownopen] = useState(false);
 
   const { title, itemCards } = props.card.card;
   const { isveg } = props;

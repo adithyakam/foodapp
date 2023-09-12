@@ -1,5 +1,7 @@
 import react, { createContext } from "react";
 
-export const userContext = createContext({
-  fn: "ak",
+const userContext = createContext({
+  name: "ak",
 });
+
+export default userContext;

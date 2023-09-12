@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Restuarants from "./Components/Restuarants/Restuarants";
@@ -22,20 +22,26 @@ const Cart = lazy(() => import("./Components/Cart/Cart"));
 
 import "./App.css";
 import Shimmer from "./Components/Shimmer/Shimmer";
-import { userContext } from "./Components/utils/userContext";
+import userContext from "./Components/utils/userContext";
 
 function App() {
-  const MainContext = useContext(userContext);
+  const [loggeduser, setloggeduser] = useState({});
 
-  const userdata = {
-    fn: "adithya",
-    ln: "kamath",
-  };
+  useEffect(() => {
+    const data = {
+      name: "Adithya K",
+    };
+
+    setloggeduser(data);
+  }, []);
+
+  // const MainContext = useContext(userContext);
+
   return (
     <>
-      <MainContext.Provider value={userdata}>
+      <userContext.Provider value={loggeduser}>
         <Header />
-      </MainContext.Provider>
+      </userContext.Provider>
       <Outlet />
       <Footer />
     </>
