@@ -4,6 +4,9 @@ import veg from "../../assets/Veg.svg";
 import nonveg from "../../assets/non-veg.svg";
 import bestseller from "../../assets/star-yellow.svg";
 import { menuimage } from "../utils/utils";
+import { useDispatch } from "react-redux";
+
+import { addCart } from "../Redux/cartSlice";
 
 const Menu = (props) => {
   const {
@@ -11,6 +14,8 @@ const Menu = (props) => {
     isopen,
     vegonly,
   } = props;
+
+  const dispatch = useDispatch();
 
   const MenuComponent = () => {
     return (
@@ -52,6 +57,9 @@ const Menu = (props) => {
               <></>
             )}
             <button
+              onClick={() => {
+                dispatch(addCart(props.info));
+              }}
               className={
                 imageId
                   ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"

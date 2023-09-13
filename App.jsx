@@ -23,6 +23,8 @@ const Cart = lazy(() => import("./Components/Cart/Cart"));
 import "./App.css";
 import Shimmer from "./Components/Shimmer/Shimmer";
 import userContext from "./Components/utils/userContext";
+import { store } from "./Components/Redux/store";
+import { Provider } from "react-redux";
 
 function App() {
   const [loggeduser, setloggeduser] = useState({});
@@ -39,11 +41,13 @@ function App() {
 
   return (
     <>
-      <userContext.Provider value={loggeduser}>
-        <Header />
-      </userContext.Provider>
-      <Outlet />
-      <Footer />
+      <Provider store={store}>
+        <userContext.Provider value={loggeduser}>
+          <Header />
+        </userContext.Provider>
+        <Outlet />
+        <Footer />
+      </Provider>
     </>
   );
 }
