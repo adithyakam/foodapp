@@ -58,7 +58,8 @@ const Menu = (props) => {
             )}
             <button
               onClick={() => {
-                dispatch(addCart(props.info));
+                const items = { ...props.info, itemNumber: 1 };
+                dispatch(addCart(items));
               }}
               className={
                 imageId

@@ -9,11 +9,26 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addCart: (state, action) => {
-      state.items.push(action.payload);
+      const existingCartItemIndex = state.items.findIndex(
+        (cartItem) => cartItem.id === action.payload.id
+      );
+
+      if (existingCartItemIndex !== -1) {
+        state.items[existingCartItemIndex].itemNumber += 1;
+      } else {
+        state.items.push(action.payload);
+      }
     },
+
     removeCart: (state, action) => {
-      if (state.info.id === action.payload.info.id) {
-        state.items.slice(action.id, 1);
+      const existingCartItemIndex = state.items.findIndex(
+        (cartItem) => cartItem.id === action.payload
+      );
+
+      if (state.items[existingCartItemIndex].itemNumber == 1) {
+        state.items.splice(existingCartItemIndex, 1);
+      } else {
+        state.items[existingCartItemIndex].itemNumber -= 1;
       }
     },
     clearCart: (state, action) => {
