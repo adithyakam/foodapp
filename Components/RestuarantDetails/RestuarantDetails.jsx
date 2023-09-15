@@ -13,10 +13,14 @@ import MenuCategory from "../MenuCategory/MenuCategory";
 import { uuid } from "uuidv4";
 import { Toggle } from "../Toggle/Toggle";
 import useFetch from "../utils/useFetch";
+import { useDispatch } from "react-redux";
+import { addRes } from "../Redux/restuarantSlice";
 // import offerlogo from "../../assets/offers.svg";
 
 function RestuarantDetails() {
   const parms = useParams();
+
+  const dispatch = useDispatch();
 
   const resInfo = useFetch(`${apiRestuarants + parms.id}`);
 
@@ -47,6 +51,19 @@ function RestuarantDetails() {
       sla: { deliveryTime },
     },
   } = resInfo?.data?.cards[0]?.card?.card;
+
+  dispatch(
+    addRes({
+      name,
+      city,
+      costForTwo,
+      areaName,
+      cuisines,
+      avgRatingString,
+      totalRatingsString,
+      deliveryTime,
+    })
+  );
 
   const { cards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   const { offers } =
