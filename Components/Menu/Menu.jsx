@@ -4,9 +4,12 @@ import veg from "../../assets/Veg.svg";
 import nonveg from "../../assets/non-veg.svg";
 import bestseller from "../../assets/star-yellow.svg";
 import { menuimage } from "../utils/utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { addCart } from "../Redux/cartSlice";
+import { addCart, clearCart } from "../Redux/cartSlice";
+import { addResCart } from "../Redux/cartrestuarantSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Menu = (props) => {
   const {
@@ -16,6 +19,30 @@ const Menu = (props) => {
   } = props;
 
   const dispatch = useDispatch();
+  const rescartinfo = useSelector((state) => state.cartres.restuarant);
+  const resinfo = useSelector((state) => state.restuarant.restuarant);
+
+  const cartCTA = () => {
+    const items = { ...props.info, itemNumber: 1 };
+
+    if (resinfo.name == rescartinfo.name) {
+      dispatch(addCart(items));
+    } else {
+      toast.info("🦄 Wow so easy!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      dispatch(clearCart());
+      // dispatch(addResCart(resinfo));
+      dispatch(addCart(items));
+    }
+  };
 
   const MenuComponent = () => {
     return (
@@ -47,6 +74,7 @@ const Menu = (props) => {
             <div className="menu-content-price">Rs {price / 100}</div>
             <div className="text-[8]">{description}</div>
           </div>
+
           <div className="relative">
             {imageId ? (
               <img
@@ -56,11 +84,9 @@ const Menu = (props) => {
             ) : (
               <></>
             )}
+
             <button
-              onClick={() => {
-                const items = { ...props.info, itemNumber: 1 };
-                dispatch(addCart(items));
-              }}
+              onClick={cartCTA}
               className={
                 imageId
                   ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
@@ -70,6 +96,7 @@ const Menu = (props) => {
               Add
             </button>
           </div>
+          <ToastContainer />
         </div>
       </>
     );

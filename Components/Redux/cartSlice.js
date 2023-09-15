@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
         state.items[existingCartItemIndex].itemNumber -= 1;
       }
     },
-    clearCart: (state, action) => {
+    clearCart: (state) => {
       state.items.length = 0;
     },
   },
