@@ -28,18 +28,21 @@ const Menu = (props) => {
     if (resinfo.name == rescartinfo.name) {
       dispatch(addCart(items));
     } else {
-      toast.info("🦄 Wow so easy!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      setTimeout(() => {
+        toast.success("Restuarant Changed ", {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: 0,
+          theme: "light",
+        });
+      }, 0);
+
       dispatch(clearCart());
-      // dispatch(addResCart(resinfo));
+      dispatch(addResCart(resinfo));
       dispatch(addCart(items));
     }
   };

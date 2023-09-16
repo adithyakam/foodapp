@@ -15,8 +15,6 @@ const useFetch = (url) => {
       });
   };
 
-  console.log(data, "data");
-
   return data;
 };
 

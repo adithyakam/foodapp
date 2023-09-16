@@ -11,7 +11,6 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const restuarant = useSelector((state) => state.restuarant.restuarant);
-  console.log(restuarant);
   const {
     name,
     city,
