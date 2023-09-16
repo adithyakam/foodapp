@@ -30,8 +30,6 @@ function RestuarantDetails() {
   const [iscategorydropdownopen, setiscategorydropdownopen] = useState(false);
 
   const menuOpen = (index) => {
-    console.log(index, categoryitemindex);
-
     index == categoryitemindex
       ? setcategoryitemindex(-1)
       : setcategoryitemindex(index);

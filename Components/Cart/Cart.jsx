@@ -60,65 +60,72 @@ const Cart = () => {
             <h1 className="text-sm font-semibold text-gray-900 border-b-2 border-dashed p-1 mb-2">
               {name}
             </h1>
-            {cart.map((menu) => {
-              const {
-                name,
-                price,
-                inStock,
-                isVeg,
-                id,
-                imageId,
-                isBestseller,
-                description,
-                itemNumber,
-              } = menu;
-              return (
-                <div className={"flex h-5  py-7 px-0 items-center"}>
-                  <div className="menu-content-container  flex items-center justify-around w-full">
-                    {isVeg == 1 ? (
-                      <img
-                        src={veg}
-                        className="h-5 w-5 object-contain mx-3 justify-start"
-                      />
-                    ) : (
-                      <img
-                        src={nonveg}
-                        className="h-5 w-5 object-contain mx-3 justify-start"
-                      />
-                    )}
+            <div className="overflow-y-auto">
+              {cart.map((menu) => {
+                const {
+                  name,
+                  price,
+                  inStock,
+                  isVeg,
+                  id,
+                  imageId,
+                  isBestseller,
+                  description,
+                  itemNumber,
+                } = menu;
+                return (
+                  <div
+                    className={"flex h-5  py-7 px-0 items-center "}
+                    key={name}
+                  >
+                    <div className="menu-content-container  flex items-center justify-around w-full">
+                      {isVeg == 1 ? (
+                        <img
+                          src={veg}
+                          className="h-5 w-5 object-contain mx-3 justify-start"
+                        />
+                      ) : (
+                        <img
+                          src={nonveg}
+                          className="h-5 w-5 object-contain mx-3 justify-start"
+                        />
+                      )}
 
-                    <div className="text-sm w-[30%] justify-start">{name}</div>
-                    <div className=" border-green-500 border-solid mx-3 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around">
-                      <button
-                        onClick={() => {
-                          dispatch(removeCart(id));
-                        }}
-                        className={
-                          "cursor-pointer rounded-m text-green-400 text-sm mx-3 "
-                        }
-                      >
-                        -
-                      </button>
-                      {itemNumber}
-                      <button
-                        onClick={() => {
-                          const item = { ...menu, itemNumber: 1 };
-                          dispatch(addCart(item));
-                        }}
-                        className={
-                          "cursor-pointer rounded-md  text-green-400 text-sm mx-3"
-                        }
-                      >
-                        +
-                      </button>
-                    </div>
-                    <div className="menu-content-price mx-1 justify-end">
-                      Rs {itemNumber * (price / 100)}
+                      <div className="text-sm w-[30%] justify-start">
+                        {name}
+                      </div>
+                      <div className=" border-green-500 border-solid mx-3 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around">
+                        <button
+                          onClick={() => {
+                            dispatch(removeCart(id));
+                          }}
+                          className={
+                            "cursor-pointer rounded-m text-green-400 text-sm mx-3 "
+                          }
+                        >
+                          -
+                        </button>
+                        {itemNumber}
+                        <button
+                          onClick={() => {
+                            const item = { ...menu, itemNumber: 1 };
+                            dispatch(addCart(item));
+                          }}
+                          className={
+                            "cursor-pointer rounded-md  text-green-400 text-sm mx-3"
+                          }
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div className="menu-content-price mx-1 justify-end">
+                        Rs {itemNumber * (price / 100)}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
           <div className=" row-span-1 col-span-4	row-start-5 col-start-9  bg-white z-10 p-4">
             <div className="w-[80%] flex justify-between m-auto border-t-2 border-solid border-black p-2">
