@@ -6,11 +6,14 @@ import star from "../../assets/star.svg";
 function RestuarantCard(props) {
   const { name, area, avgRating, cloudinaryImageId, cuisines } = props;
   return (
-    <div className="w-64 h-80 flex flex-col items-center my-1.5 mx-0.5 cursor-pointer border-0 rounded-2xl hover:scale-[1.1]">
-      <div className="w-full ">
-        <img src={`${imageURL}${cloudinaryImageId}`} className="rounded-2xl" />
+    <div className="w-64 h-80 flex flex-col  items-center my-1.5 mx-0.5 cursor-pointer border-0 rounded-2xl hover:scale-[1.1]">
+      <div className=" h-40 w-64">
+        <img
+          src={`${imageURL}${cloudinaryImageId}`}
+          className="rounded-2xl w-full h-full object-fill"
+        />
       </div>
-      <div className="items-start w-full mt-2 ml-4 ">
+      <div className="items-start w-full mt-2 ml-4 w-64">
         <h1 className="font-bold text-base ml-0 overflow-hidden text-ellipsis block whitespace-nowrap">
           {name}
         </h1>
