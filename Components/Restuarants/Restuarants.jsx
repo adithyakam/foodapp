@@ -10,10 +10,11 @@ import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
 
 const Restuarants = () => {
-  const [restuarants, setrestuarants] = useState([]);
+  const [resinfoapi, setresinfoapi] = useState({});
+  // const [restuarants, setrestuarants] = useState([]);
   const [restuarantList, setrestuarantList] = useState([]);
-  const [whatsonmind, setwhatsonmind] = useState([]);
-  const [topres, settopres] = useState([]);
+  // const [whatsonmind, setwhatsonmind] = useState([]);
+  // const [topres, settopres] = useState([]);
 
   const [loading, setloading] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -26,6 +27,23 @@ const Restuarants = () => {
     filterSearchRestuatrants();
   }, [searchText]);
 
+  {
+    if (loading) {
+      return <Shimmer />;
+    }
+  }
+
+  const restuarants =
+    resinfoapi.data?.cards[5].card?.card?.gridElements?.infoWithStyle
+      ?.restaurants;
+
+  const whatsonmind =
+    resinfoapi.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.info;
+
+  const topres =
+    resinfoapi.data?.cards[2].card?.card?.gridElements?.infoWithStyle
+      ?.restaurants;
+
   // useEffect(()=>{
 
   // },searchText)
@@ -34,22 +52,12 @@ const Restuarants = () => {
     await fetch(apiURL)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        setrestuarants(
-          res.data?.cards[5].card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
-        );
-        setwhatsonmind(
-          res.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.info
-        );
+        setresinfoapi(res);
         setrestuarantList(
           res.data?.cards[5].card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
-        settopres(
-          res.data?.cards[2].card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
-        );
+
         setloading(false);
       });
   };
@@ -59,7 +67,7 @@ const Restuarants = () => {
   };
 
   const filterSearchRestuatrants = () => {
-    const newresList = restuarants.filter((res) =>
+    const newresList = restuarants?.filter((res) =>
       res.info?.name?.toLowerCase().includes(searchText.toLowerCase())
     );
     setrestuarantList(newresList);
@@ -67,13 +75,6 @@ const Restuarants = () => {
 
   //  restuarantList = restuarants?;
 
-  {
-    if (loading) {
-      return <Shimmer />;
-    }
-  }
-
-  console.log(whatsonmind);
   return (
     <div className="w-3/4 m-auto mt-8">
       {/* <SearchBar getSearchText={getSearchText} searchtext={searchText}/> */}
@@ -86,7 +87,7 @@ const Restuarants = () => {
             return (
               <div
                 key={item.id}
-                className="flex flex-col flex-shrink-0 justify-center items-center "
+                className="flex flex-col flex-shrink-0 justify-center items-center hover:scale-105"
               >
                 <img
                   src={menuimage + item.imageId}
