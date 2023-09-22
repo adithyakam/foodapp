@@ -10,10 +10,20 @@ import { addCart, clearCart } from "../Redux/cartSlice";
 import { addResCart } from "../Redux/cartrestuarantSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CartItem from "../CartItem/CartItem";
 
 const Menu = (props) => {
   const {
-    info: { name, price, inStock, isVeg, imageId, isBestseller, description },
+    info: {
+      name,
+      price,
+      inStock,
+      isVeg,
+      imageId,
+      isBestseller,
+      description,
+      id,
+    },
     isopen,
     vegonly,
   } = props;
@@ -21,6 +31,7 @@ const Menu = (props) => {
   const dispatch = useDispatch();
   const rescartinfo = useSelector((state) => state.cartres.restuarant);
   const resinfo = useSelector((state) => state.restuarant.restuarant);
+  const cart = useSelector((state) => state.cart.items);
 
   const cartCTA = () => {
     const items = { ...props.info, itemNumber: 1 };
@@ -46,6 +57,10 @@ const Menu = (props) => {
       dispatch(addCart(items));
     }
   };
+
+  const existingCartItemIndex = cart?.findIndex(
+    (cartItem) => cartItem.id === id
+  );
 
   const MenuComponent = () => {
     return (
@@ -88,16 +103,23 @@ const Menu = (props) => {
               <></>
             )}
 
-            <button
-              onClick={cartCTA}
-              className={
-                imageId
-                  ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
-                  : "cursor-pointer border-green-300 rounded-md absolute right-4 m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
-              }
-            >
-              Add
-            </button>
+            {existingCartItemIndex !== -1 ? (
+              <CartItem
+                menu={cart[existingCartItemIndex]}
+                css="absolute border-green-500  border-[1px] z-100 border-solid flex flex-nowrap items-center justify-around rounded-md bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+              />
+            ) : (
+              <button
+                onClick={cartCTA}
+                className={
+                  imageId
+                    ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+                    : "cursor-pointer border-green-300 rounded-md absolute right-4 m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
+                }
+              >
+                Add
+              </button>
+            )}
           </div>
           <ToastContainer />
         </div>

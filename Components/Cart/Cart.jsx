@@ -5,11 +5,10 @@ import veg from "../../assets/Veg.svg";
 import nonveg from "../../assets/non-veg.svg";
 import bestseller from "../../assets/star-yellow.svg";
 import { menuimage } from "../utils/utils";
-import { addCart, removeCart } from "../Redux/cartSlice";
+import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.items);
-  const dispatch = useDispatch();
   const restuarant = useSelector((state) => state.restuarant.restuarant);
   const {
     name,
@@ -65,12 +64,8 @@ const Cart = () => {
                 const {
                   name,
                   price,
-                  inStock,
                   isVeg,
-                  id,
-                  imageId,
-                  isBestseller,
-                  description,
+
                   itemNumber,
                 } = menu;
                 return (
@@ -94,30 +89,10 @@ const Cart = () => {
                       <div className="text-sm w-[30%] justify-start">
                         {name}
                       </div>
-                      <div className=" border-green-500 border-solid mx-3 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around">
-                        <button
-                          onClick={() => {
-                            dispatch(removeCart(id));
-                          }}
-                          className={
-                            "cursor-pointer rounded-m text-green-400 text-sm mx-3 "
-                          }
-                        >
-                          -
-                        </button>
-                        {itemNumber}
-                        <button
-                          onClick={() => {
-                            const item = { ...menu, itemNumber: 1 };
-                            dispatch(addCart(item));
-                          }}
-                          className={
-                            "cursor-pointer rounded-md  text-green-400 text-sm mx-3"
-                          }
-                        >
-                          +
-                        </button>
-                      </div>
+                      <CartItem
+                        menu={menu}
+                        cssStyle="border-green-500 border-solid mx-3 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around"
+                      />
                       <div className="menu-content-price mx-1 justify-end">
                         Rs {itemNumber * (price / 100)}
                       </div>
