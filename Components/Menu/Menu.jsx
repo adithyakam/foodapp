@@ -108,8 +108,8 @@ const Menu = (props) => {
                 menu={cart[existingCartItemIndex]}
                 cssStyle={
                   imageId
-                    ? " flex flex-nowrap items-center justify-around absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
-                    : " flex flex-nowrap items-center justify-around cursor-pointer border-green-300 rounded-md  m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
+                    ? "ease-in-out	 flex flex-nowrap items-center justify-around absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+                    : "ease-in-out	 flex flex-nowrap items-center justify-around cursor-pointer border-green-300 rounded-md  m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
                 }
               />
             ) : (
@@ -117,8 +117,8 @@ const Menu = (props) => {
                 onClick={cartCTA}
                 className={
                   imageId
-                    ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
-                    : "cursor-pointer border-green-300 rounded-md m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
+                    ? "ease-in-out	 absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+                    : " ease-in-out	 cursor-pointer border-green-300 rounded-md m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
                 }
               >
                 Add
