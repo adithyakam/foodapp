@@ -20,7 +20,7 @@ function CartItem(menu) {
       >
         -
       </button>
-      {itemNumber}
+      <h3 className="text-xs ">{itemNumber}</h3>
       <button
         onClick={() => {
           const item = { ...menu.menu, itemNumber: 1 };

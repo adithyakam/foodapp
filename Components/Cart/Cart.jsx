@@ -94,7 +94,7 @@ const Cart = () => {
                       <CartItem
                         menu={menu}
                         className="justify-start"
-                        cssStyle="border-green-500 border-solid mx-2 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around "
+                        cssStyle="border-green-500 border-solid mx-2 border-[1px] w-[20%] h-7 flex flex-nowrap items-center justify-around "
                       />
                       <div className="menu-content-price mx-1 text-xs justify-end w-[20%]">
                         Rs {itemNumber * (price / 100)}
