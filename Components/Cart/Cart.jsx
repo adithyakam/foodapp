@@ -21,9 +21,9 @@ const Cart = () => {
     deliveryTime,
   } = restuarant;
   return (
-    <div>
-      <div className="w-full h-full bg-[#e9ecee] p-4 rounded-md">
-        <div className="grid grid-cols-12 h-screen	 grid-rows-6  w-[80%] bg-transparent m-auto gap-8  ">
+    <div className="">
+      <div className="w-full h-full bg-[#e9ecee] p-4 rounded-md ">
+        <div className="grid grid-cols-12 h-screen	 grid-rows-6  w-[80%] bg-transparent m-auto gap-8   ">
           <div className="col-span-8 row-start-1	row-span-3 col-start-1 bg-white z-10 shadow-sm rounded-md">
             <div className="p-8">
               <h1 className="text-base font-semibold text-gray-900 ">
@@ -55,11 +55,11 @@ const Cart = () => {
               Proceed To Pay
             </button>
           </div>
-          <div className=" row-span-5 col-span-4	row-start-1 col-start-9  bg-white z-10 p-4">
+          <div className=" row-span-5 overflow-y-hidden col-span-4	row-start-1 col-start-9  bg-white z-10 p-4">
             <h1 className="text-sm font-semibold text-gray-900 border-b-2 border-dashed p-1 mb-2">
               {name}
             </h1>
-            <div className="overflow-y-auto">
+            <div className="overflow-y-scroll  h-full flex flex-col w-full no-scrollbar">
               {cart.map((menu) => {
                 const {
                   name,
@@ -70,10 +70,12 @@ const Cart = () => {
                 } = menu;
                 return (
                   <div
-                    className={"flex h-5  py-7 px-0 items-center "}
+                    className={
+                      "flex h-5  py-7 px-0 items-center flex-shrink-0 "
+                    }
                     key={name}
                   >
-                    <div className="menu-content-container  flex items-center justify-around w-full">
+                    <div className="menu-content-container  flex items-center justify-between w-full">
                       {isVeg == 1 ? (
                         <img
                           src={veg}
@@ -86,14 +88,15 @@ const Cart = () => {
                         />
                       )}
 
-                      <div className="text-sm w-[30%] justify-start">
+                      <div className="text-sm w-[20%] justify-start">
                         {name}
                       </div>
                       <CartItem
                         menu={menu}
-                        cssStyle="border-green-500 border-solid mx-3 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around"
+                        className="justify-start"
+                        cssStyle="border-green-500 border-solid mx-2 border-[1px] w-14 h-7 flex flex-nowrap items-center justify-around "
                       />
-                      <div className="menu-content-price mx-1 justify-end">
+                      <div className="menu-content-price mx-1 text-xs justify-end w-[20%]">
                         Rs {itemNumber * (price / 100)}
                       </div>
                     </div>

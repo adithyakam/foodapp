@@ -93,7 +93,7 @@ const Menu = (props) => {
             <div className="text-[8]">{description}</div>
           </div>
 
-          <div className="relative">
+          <div className="relative mx-auto">
             {imageId ? (
               <img
                 src={`${menuimage}${imageId}`}
@@ -106,7 +106,11 @@ const Menu = (props) => {
             {existingCartItemIndex !== -1 ? (
               <CartItem
                 menu={cart[existingCartItemIndex]}
-                css="absolute border-green-500  border-[1px] z-100 border-solid flex flex-nowrap items-center justify-around rounded-md bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+                cssStyle={
+                  imageId
+                    ? " flex flex-nowrap items-center justify-around absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
+                    : " flex flex-nowrap items-center justify-around cursor-pointer border-green-300 rounded-md  m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
+                }
               />
             ) : (
               <button
@@ -114,7 +118,7 @@ const Menu = (props) => {
                 className={
                   imageId
                     ? "absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
-                    : "cursor-pointer border-green-300 rounded-md absolute right-4 m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
+                    : "cursor-pointer border-green-300 rounded-md m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
                 }
               >
                 Add

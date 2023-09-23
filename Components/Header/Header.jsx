@@ -9,10 +9,16 @@ import search from "../../assets/search.svg";
 import down from "../../assets/down.svg";
 import { Link } from "react-router-dom";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 function Header() {
   const { name } = useContext(userContext);
+  const cartitemcount = useSelector((state) => state.cart.items);
 
+  const cartlength = cartitemcount.reduce((acc, cart) => {
+    return (acc = acc + cart.itemNumber);
+  }, 0);
+  console.log(cartlength, "dsfs");
   return (
     <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
       <div className="flex justify-around items-center p-4 	">
@@ -48,8 +54,11 @@ function Header() {
           </div>
         </Link>
         <Link to="/cart">
-          <div className="header-content flex mx-5 items-center hover:text-orange-400">
+          <div className="header-content flex mx-5 items-center hover:text-orange-400 relative">
             <img src={cart} className="header-logo mx-3" />
+            <h3 className="text-[8px] absolute  z-20 left-[18] font-semibold">
+              {cartlength}
+            </h3>
             <h1 className="font-bold text-sm tracking-wider	">Cart</h1>
           </div>
         </Link>
