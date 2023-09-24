@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Restuarants from "./Components/Restuarants/Restuarants";
-import React from "react";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
