@@ -123,7 +123,7 @@ const Restuarants = () => {
         <h1 className="font-semibold text-base text-slate-900 mb-2">
           Top restaurant chains
         </h1>
-        <div className="flex flex-wrap justify-around w-full m-auto">
+        <div className="flex flex-wrap justify-around w-full m-auto scrollbar-hide">
           {restuarantList?.map(
             ({
               info: {

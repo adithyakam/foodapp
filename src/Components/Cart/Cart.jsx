@@ -59,7 +59,7 @@ const Cart = () => {
             <h1 className="text-sm font-semibold text-gray-900 border-b-2 border-dashed p-1 mb-2">
               {name}
             </h1>
-            <div className="overflow-y-scroll  h-full flex flex-col w-full no-scrollbar">
+            <div className="overflow-y-scroll  h-[80%] flex flex-col w-full no-scrollbar m">
               {cart.map((menu) => {
                 const {
                   name,
