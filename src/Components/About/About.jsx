@@ -42,9 +42,10 @@ class About extends Component {
 
     return (
       <div>
-        <h1>name: {name}</h1>
-        <h1>location : {location}</h1>
-        <h1>bio : {bio}</h1>
+        <h1>About Me</h1>
+        <h3>name: {name}</h3>
+        <h3>location : {location}</h3>
+        <h3>bio : {bio}</h3>
         {/* <h1>pic: {avatar_url}</h1> */}
       </div>
     );
