@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import offer from "../../assets/offers.svg";
@@ -10,6 +10,7 @@ import down from "../../assets/down.svg";
 import { Link } from "react-router-dom";
 import userContext from "../utils/userContext";
 import { useSelector } from "react-redux";
+import LoginSideBar from "../LoginSidebar/LoginSideBar";
 
 function Header() {
   const { name } = useContext(userContext);
@@ -18,7 +19,6 @@ function Header() {
   const cartlength = cartitemcount.reduce((acc, cart) => {
     return (acc = acc + cart.itemNumber);
   }, 0);
-  console.log(cartlength, "dsfs");
   return (
     <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
       <div className="flex justify-around items-center p-4 	">
@@ -35,7 +35,7 @@ function Header() {
             <h1 className="font-bold text-sm tracking-wider  ">Search </h1>
           </div>
         </Link>
-        <Link to="/offer">
+        <Link to="">
           <div className="header-content flex mx-5 items-center hover:text-orange-400 ">
             <img src={offer} className="header-logo mx-3" />
             <h1 className="font-bold text-sm tracking-wider	">Offer </h1>
@@ -50,7 +50,9 @@ function Header() {
         <Link to="/about">
           <div className="header-content flex mx-5 items-center hover:text-orange-400">
             <img src={profile} className="header-logo mx-3" />
-            <h1 className="font-bold text-sm tracking-wider	">{name}</h1>
+            <button className="font-bold text-sm tracking-wider	">
+              {name ? name : "login"}
+            </button>
           </div>
         </Link>
         <Link to="/cart">

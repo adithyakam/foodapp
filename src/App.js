@@ -24,9 +24,11 @@ import Shimmer from "./Components/Shimmer/Shimmer";
 import userContext from "./Components/utils/userContext";
 import { store } from "./Components/Redux/store";
 import { Provider } from "react-redux";
+import LoginSideBar from "./Components/LoginSidebar/LoginSideBar";
 
 function App() {
   const [loggeduser, setloggeduser] = useState({});
+  const [sidebar, setsidebar] = useState("");
 
   useEffect(() => {
     const data = {
@@ -39,15 +41,17 @@ function App() {
   // const MainContext = useContext(userContext);
 
   return (
-    <>
+    <div>
       <Provider store={store}>
         <userContext.Provider value={loggeduser}>
           <Header />
         </userContext.Provider>
         <Outlet />
+        {sidebar ? <LoginSideBar /> : ""}
+
         <Footer />
       </Provider>
-    </>
+    </div>
   );
 }
 
