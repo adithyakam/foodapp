@@ -1,43 +1,50 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import userContext from "../utils/userContext";
+import { useNavigate } from "react-router-dom";
 
 function LoginSideBar() {
-  const { setUser } = useContext(userContext);
-  const [name, setname] = useState("name");
-  return (
-    <div className=" h-full w-full absolute left-0 top-0   bg-teal-50  overflow-hidden">
-      <div className="w-[40%] h-full absolute right-0 top-0 bg-slate-50  important overflow-hidden  p-10">
-        <h1 className="font-bold">Login</h1>
+  const [uname, setuname] = useState("");
+  const { name, setName } = useContext(userContext);
 
-        <div className=" relative">
-          <form
-            onSubmit={(e) => {
-              setUser;
-            }}
-          >
-            <div className="mb-4 ">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2 w-full "
-                for="username"
-              >
-                Username
-              </label>
+  const navigate = useNavigate();
+
+  if (name) {
+    navigate("/about");
+    return null;
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setName(uname);
+  };
+
+  return (
+    <div className=" h-full w-full  bg-slate-50  ">
+      <div className="h-full w-full    p-10 ">
+        <h1 className="font-bold text-lg  mb-8">Login</h1>
+
+        <div>
+          <form onSubmit={(e) => handleSubmit(e)} className="block">
+            <div className="mb-4">
+              <label htmlFor="username">Username</label>
+
               <input
-                className="w-full h-10 leading-tight bg-slate-600 z-40 border border-solid border-black"
+                className="block w-full text-xs  opacity-full rounded-md border-2  py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 id="username"
                 type="text"
                 name="username"
-                value={name}
-                placeholder="Username"
-                onChange={(e) => setname(e.target.value)}
+                value={uname}
+                placeholder="Please enter your name"
+                onChange={(e) => setuname(e.target.value)}
               />
             </div>
 
             <div className="flex items-center justify-between">
               <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="submit"
               >
                 Sign In
               </button>

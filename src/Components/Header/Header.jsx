@@ -9,6 +9,7 @@ import search from "../../assets/search.svg";
 import down from "../../assets/down.svg";
 import { Link } from "react-router-dom";
 import userContext from "../utils/userContext";
+
 import { useSelector } from "react-redux";
 import LoginSideBar from "../LoginSidebar/LoginSideBar";
 
@@ -19,6 +20,8 @@ function Header() {
   const cartlength = cartitemcount.reduce((acc, cart) => {
     return (acc = acc + cart.itemNumber);
   }, 0);
+
+  console.log(name);
   return (
     <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
       <div className="flex justify-around items-center p-4 	">
@@ -47,14 +50,26 @@ function Header() {
             <h1 className="font-bold text-sm tracking-wider	">Help</h1>
           </div>
         </Link>
-        <Link to="/about">
-          <div className="header-content flex mx-5 items-center hover:text-orange-400">
-            <img src={profile} className="header-logo mx-3" />
-            <button className="font-bold text-sm tracking-wider	">
-              {name ? name : "login"}
-            </button>
-          </div>
-        </Link>
+        {name ? (
+          <Link to="/about">
+            <div className="header-content flex mx-5 items-center hover:text-orange-400">
+              <img src={profile} className="header-logo mx-3" />
+              <button className="font-bold text-sm tracking-wider	">
+                {name}
+              </button>
+            </div>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <div className="header-content flex mx-5 items-center hover:text-orange-400">
+              <img src={profile} className="header-logo mx-3" />
+              <button className="font-bold text-sm tracking-wider	">
+                {name ? name : "login"}
+              </button>
+            </div>
+          </Link>
+        )}
+
         <Link to="/cart">
           <div className="header-content flex mx-5 items-center hover:text-orange-400 relative">
             <img src={cart} className="header-logo mx-3" />

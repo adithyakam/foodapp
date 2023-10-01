@@ -27,27 +27,15 @@ import { Provider } from "react-redux";
 import LoginSideBar from "./Components/LoginSidebar/LoginSideBar";
 
 function App() {
-  const [loggeduser, setloggeduser] = useState({});
-  const [sidebar, setsidebar] = useState("");
-
-  useEffect(() => {
-    const data = {
-      name: "Adithya K",
-    };
-
-    setloggeduser(data);
-  }, []);
-
-  // const MainContext = useContext(userContext);
+  const [name, setName] = useState("");
 
   return (
     <div>
       <Provider store={store}>
-        <userContext.Provider value={loggeduser}>
+        <userContext.Provider value={{ name, setName }}>
           <Header />
+          <Outlet />
         </userContext.Provider>
-        <Outlet />
-        {sidebar ? <LoginSideBar /> : ""}
 
         <Footer />
       </Provider>
@@ -102,6 +90,14 @@ const Approuter = createBrowserRouter([
         element: (
           <Suspense fallback={<Shimmer />}>
             <RestuarantDetails />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <LoginSideBar />
           </Suspense>
         ),
       },
