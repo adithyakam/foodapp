@@ -107,7 +107,7 @@ const Restuarants = () => {
         <div className=" flex flex-nowrap items-center overflow-x-scroll w-full space-x-2 no-scrollbar">
           {topres?.map((item) => {
             return (
-              <Link to={"/restuarants/" + item.info.id}>
+              <Link to={"/restuarants/" + item.info.id} key={item.info.name}>
                 <RestuarantCard
                   name={item.info.name}
                   key={item.info.name}
@@ -115,6 +115,7 @@ const Restuarants = () => {
                   avgRating={item.info.avgRating}
                   cuisines={item.info.cuisines}
                   cloudinaryImageId={item.info.cloudinaryImageId}
+                  data-testid="top-res"
                 />
               </Link>
             );
@@ -123,7 +124,7 @@ const Restuarants = () => {
       </div>
       <div className="w-full m-auto z-10">
         <h1 className="font-semibold text-base text-slate-900 mb-2">
-          Top restaurant chains
+          Restaurants with online food delivery
         </h1>
         <div className="flex flex-wrap justify-around w-full m-auto scrollbar-hide">
           {restuarantList?.map(
@@ -138,7 +139,7 @@ const Restuarants = () => {
               },
             }) => {
               return avgRating > 4 ? (
-                <Link to={"/restuarants/" + id}>
+                <Link to={"/restuarants/" + id} key={name}>
                   <RestuarantCardPopular
                     name={name}
                     key={name}

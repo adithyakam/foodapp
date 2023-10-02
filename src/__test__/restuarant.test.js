@@ -36,7 +36,21 @@ it("should resutarant Top Restuarant correctly", async () => {
     )
   );
 
-  const topres = screen.getAllByByText("McDonald's");
+  const topres = screen.getByText("The Belgian Waffle Co.");
 
-  expect(topres[0]).toBeInTheDocument();
+  expect(topres).toBeInTheDocument();
+});
+
+it("should show all resutarant correctly", async () => {
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Restuarants />
+      </BrowserRouter>
+    )
+  );
+
+  const topres = screen.getByText("Shree Chaats");
+
+  expect(topres).toBeInTheDocument();
 });
