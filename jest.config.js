@@ -150,6 +150,7 @@ const config = {
   moduleNameMapper: {
     "\\.(svg)$":
       "C://Users/kamat/OneDrive/Desktop/React/swiggy/src/__mocks__/svg.js",
+    "\\.(css|scss)$": "identity-obj-proxy",
   },
 
   // Options that will be passed to the testEnvironment

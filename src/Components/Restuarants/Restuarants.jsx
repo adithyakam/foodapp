@@ -48,6 +48,8 @@ const Restuarants = () => {
 
   // },searchText)
 
+  console.log(resinfoapi);
+
   const getRestuarants = async () => {
     await fetch(apiURL)
       .then((res) => res.json())

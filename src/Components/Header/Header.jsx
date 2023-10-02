@@ -62,7 +62,10 @@ function Header() {
           <Link to="/login">
             <div className="header-content flex mx-5 items-center hover:text-orange-400">
               <img src={profile} className="header-logo mx-3" />
-              <button className="font-bold text-sm tracking-wider	">
+              <button
+                className="font-bold text-sm tracking-wider	"
+                data-testid="login-btn"
+              >
                 {name ? name : "login"}
               </button>
             </div>

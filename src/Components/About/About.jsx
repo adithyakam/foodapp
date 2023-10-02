@@ -15,6 +15,7 @@ class About extends Component {
     fetch("https://api.github.com/users/adithyakam")
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         this.setState({
           avatar_url: res.avatar_url,
           name: res.name,
@@ -22,16 +23,6 @@ class About extends Component {
           bio: res.bio,
         });
       });
-
-    console.log("didmount");
-  }
-
-  componentDidUpdate() {
-    console.log("did update");
-  }
-
-  componentWillUnmount() {
-    console.log("unmount");
   }
 
   render() {

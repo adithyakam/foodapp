@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./SearchBar.css";
 
 function SearchBar(props) {
   const { getSearchText, searchtext } = props;

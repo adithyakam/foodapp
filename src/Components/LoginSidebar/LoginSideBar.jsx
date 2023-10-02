@@ -38,6 +38,7 @@ function LoginSideBar() {
                 value={uname}
                 placeholder="Please enter your name"
                 onChange={(e) => setuname(e.target.value)}
+                data-testid="search-field"
               />
             </div>
 
