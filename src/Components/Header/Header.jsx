@@ -21,7 +21,6 @@ function Header() {
     return (acc = acc + cart.itemNumber);
   }, 0);
 
-  console.log(name);
   return (
     <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
       <div className="flex justify-around items-center p-4 	">

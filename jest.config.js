@@ -147,6 +147,11 @@ const config = {
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
 
+  moduleNameMapper: {
+    "\\.(svg)$":
+      "C://Users/kamat/OneDrive/Desktop/React/swiggy/src/__mocks__/svg.js",
+  },
+
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
 
