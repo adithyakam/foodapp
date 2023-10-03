@@ -10,7 +10,6 @@ import time from "../../assets/time.svg";
 import offer from "../../assets/offers.svg";
 
 import MenuCategory from "../MenuCategory/MenuCategory";
-import { uuid } from "uuidv4";
 import { Toggle } from "../Toggle/Toggle";
 import useFetch from "../utils/useFetch";
 import { useDispatch } from "react-redux";
@@ -34,6 +33,8 @@ function RestuarantDetails() {
       ? setcategoryitemindex(-1)
       : setcategoryitemindex(index);
   };
+
+  console.log(resInfo);
 
   if (resInfo === null) return <Shimmer />;
 

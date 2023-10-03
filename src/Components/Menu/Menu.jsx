@@ -68,9 +68,10 @@ const Menu = (props) => {
         <div
           className={
             isopen
-              ? "flex justify-between py-7 px-0 items-center border-b-2"
-              : "flex justify-between py-7 px-0 items-center border-b-2 hidden invisible menuclose"
+              ? "flex justify-between py-7 px-0 items-center border-b-2 "
+              : "flex justify-between py-7 px-0 items-center border-b-2 hidden  menuclose"
           }
+          data-testid={isopen ? "menu-items" : ""}
         >
           <div className="menu-content-container w-[80%]">
             <div className="flex flex-row items-center">
@@ -120,6 +121,7 @@ const Menu = (props) => {
                     ? "ease-in-out	 absolute rounded-md border-green-300 bottom-[-5%] right-[10%] m-auto w-[80%] p-1 b-0 text-green-400 text-sm shadow-md cursor-pointer bg-slate-50"
                     : " ease-in-out	 cursor-pointer border-green-300 rounded-md m-auto w-24 p-1 b-0 bg-slate-50 text-green-400 text-sm shadow-md"
                 }
+                data-testid={isopen ? "add-btn" : ""}
               >
                 Add
               </button>

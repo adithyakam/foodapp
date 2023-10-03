@@ -75,7 +75,10 @@ function Header() {
         <Link to="/cart">
           <div className="header-content flex mx-5 items-center hover:text-orange-400 relative">
             <img src={cart} className="header-logo mx-3" />
-            <h3 className="text-[8px] absolute  z-20 left-[18] font-semibold">
+            <h3
+              className="text-[8px] absolute  z-20 left-[18] font-semibold"
+              data-testid="cart-value"
+            >
               {cartlength}
             </h3>
             <h1 className="font-bold text-sm tracking-wider	">Cart</h1>

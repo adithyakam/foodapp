@@ -150,7 +150,7 @@ const Restuarants = () => {
                   />
                 </Link>
               ) : (
-                <Link to={"/restuarants/" + id}>
+                <Link to={"/restuarants/" + id} key={name}>
                   <RestuarantCard
                     name={name}
                     key={name}
