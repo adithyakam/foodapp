@@ -3,4 +3,7 @@ module.exports = {
   // Rest of your Tailwind CSS configuration
   theme: {},
   plugins: [],
+  images: {
+formats: ['image/webp'],
+},
 };
