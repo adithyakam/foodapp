@@ -29,6 +29,12 @@ import LoginSideBar from "./Components/LoginSidebar/LoginSideBar";
 function App() {
   const [name, setName] = useState("");
 
+  useEffect(() => {
+    alert(
+      "This Web App uses live Swiggy API's, Please install cors browser plugin to enjoy the app "
+    );
+  }, []);
+
   return (
     <div>
       <Provider store={store}>

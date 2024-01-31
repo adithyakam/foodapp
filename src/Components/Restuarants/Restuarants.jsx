@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import RestuarantCard, {
   RestuarantCardPopular,
 } from "../RestuarantCard/RestuarantCard";
-import { apiURL, menuimage } from "../utils/utils";
+import { apiURL, menuimage, updateAPI } from "../utils/utils";
 import "./Restuarants.css";
-import SearchBar from "../SearchBar/SearchBar";
 import { data } from "../utils/demo";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
@@ -18,6 +17,19 @@ const Restuarants = () => {
 
   const [loading, setloading] = useState(false);
   const [searchText, setSearchText] = useState("");
+
+  // const handleScroll = () => {
+  //   const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+  //   if (scrollTop + clientHeight >= scrollHeight - 20) {
+  //     getUpdate();
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   console.log("check innnn");
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // });
 
   useEffect(() => {
     getRestuarants();
@@ -34,14 +46,14 @@ const Restuarants = () => {
   }
 
   const restuarants =
-    resinfoapi.data?.cards[5].card?.card?.gridElements?.infoWithStyle
+    resinfoapi.data?.cards[4].card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
 
   const whatsonmind =
-    resinfoapi.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.info;
+    resinfoapi.data?.cards[0].card?.card?.gridElements?.infoWithStyle?.info;
 
   const topres =
-    resinfoapi.data?.cards[2].card?.card?.gridElements?.infoWithStyle
+    resinfoapi.data?.cards[1].card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
 
   // useEffect(()=>{
@@ -50,13 +62,31 @@ const Restuarants = () => {
 
   console.log(resinfoapi);
 
+  const getUpdate = async () => {
+    await fetch(updateAPI, {
+      method: "POST",
+      lat: "13.9299299",
+      lng: "75.568101",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        setresinfoapi(res);
+        setrestuarantList(
+          res.data?.cards[0].card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
+
+        setloading(false);
+      });
+  };
+
   const getRestuarants = async () => {
     await fetch(apiURL)
       .then((res) => res.json())
       .then((res) => {
         setresinfoapi(res);
         setrestuarantList(
-          res.data?.cards[5].card?.card?.gridElements?.infoWithStyle
+          res.data?.cards[4].card?.card?.gridElements?.infoWithStyle
             ?.restaurants
         );
 
