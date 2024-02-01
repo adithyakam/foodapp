@@ -1,13 +1,16 @@
 import React from "react";
 import { imageURL } from "../utils/utils";
 
-const SearchResults = ({ suggestion }) => {
+const SearchResults = ({ suggestion, setresultSuggestion }) => {
   return (
-    <div className="flex  w-full m-1 p-1 cursor-pointer">
+    <div
+      className="flex  w-full m-1 p-1 cursor-pointer"
+      onClick={(e) => setresultSuggestion(true)}
+    >
       <div>
         <img
           src={imageURL + suggestion.cloudinaryId}
-          className="h-16 object-fill w-16 rounded-md  "
+          className="h-14 object-fill w-14 rounded-md  "
         />
       </div>
       <div className="ml-2">

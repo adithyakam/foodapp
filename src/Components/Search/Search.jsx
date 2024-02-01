@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { searchAPI } from "../utils/utils";
 import SearchResults from "../SearchResults/SearchResults";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import SearchResCard from "../SearchResCard/SearchResCard";
 
 const Search = () => {
   const [searchText, setsearchText] = useState("");
   const [searchResults, setsearchResults] = useState([]);
+  const [resultSuggestion, setresultSuggestion] = useState("");
+
+  const navigate = useNavigate();
+  let [searchParams] = useSearchParams();
+
+  const searchquery = searchParams.get("query");
 
   const onSearchRes = async (e) => {
     e.preventDefault();
+
     const api = await fetch(searchAPI + searchText)
       .then((res) => res.json())
       .then((res) => {
         setsearchResults(res.data.suggestions);
+        navigate("/search?query=" + searchText);
       });
   };
 
@@ -28,13 +38,24 @@ const Search = () => {
           onChange={(e) => setsearchText(e.target.value)}
         />
       </form>
-      {searchResults.length > 0 ? (
-        <div className="w-[40%] mt-4 p-2">
-          {searchResults.map((suggestion, i) => {
-            return <SearchResults suggestion={suggestion} key={i} />;
-          })}
-        </div>
-      ) : null}
+
+      {searchquery ? (
+        searchResults.length > 0 ? (
+          <div className="w-[40%] mt-4 p-2">
+            {searchResults.map((suggestion, i) => {
+              return (
+                <SearchResults
+                  setresultSuggestion={setresultSuggestion}
+                  suggestion={suggestion}
+                  key={i}
+                />
+              );
+            })}
+          </div>
+        ) : null
+      ) : (
+        <SearchResCard />
+      )}
     </div>
   );
 };
