@@ -2,17 +2,23 @@ import React, { useState, useEffect } from "react";
 import { searchAPI } from "../utils/utils";
 import SearchResults from "../SearchResults/SearchResults";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import SearchResCard from "../SearchResCard/SearchResCard";
+import SearchResCard from "../SearchResContainer/SearchResContainer";
+import SearchResContainer from "../SearchResContainer/SearchResContainer";
 
 const Search = () => {
   const [searchText, setsearchText] = useState("");
   const [searchResults, setsearchResults] = useState([]);
-  const [resultSuggestion, setresultSuggestion] = useState("");
+  const [resultSuggestion, setresultSuggestion] = useState(false);
 
   const navigate = useNavigate();
   let [searchParams] = useSearchParams();
 
   const searchquery = searchParams.get("query");
+
+  const onSetResultSuggestion = () => {
+    setresultSuggestion(true);
+    console.log(resultSuggestion);
+  };
 
   const onSearchRes = async (e) => {
     e.preventDefault();
@@ -39,13 +45,13 @@ const Search = () => {
         />
       </form>
 
-      {searchquery ? (
+      {!resultSuggestion ? (
         searchResults.length > 0 ? (
           <div className="w-[40%] mt-4 p-2">
             {searchResults.map((suggestion, i) => {
               return (
                 <SearchResults
-                  setresultSuggestion={setresultSuggestion}
+                  onSetResultSuggestion={onSetResultSuggestion}
                   suggestion={suggestion}
                   key={i}
                 />
@@ -54,7 +60,9 @@ const Search = () => {
           </div>
         ) : null
       ) : (
-        <SearchResCard />
+        <div className="w-[60%] mt-4">
+          <SearchResContainer searchText={searchText} />
+        </div>
       )}
     </div>
   );

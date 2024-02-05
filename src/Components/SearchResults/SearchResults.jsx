@@ -1,11 +1,11 @@
 import React from "react";
 import { imageURL } from "../utils/utils";
 
-const SearchResults = ({ suggestion, setresultSuggestion }) => {
+const SearchResults = ({ suggestion, onSetResultSuggestion }) => {
   return (
     <div
       className="flex  w-full m-1 p-1 cursor-pointer"
-      onClick={(e) => setresultSuggestion(true)}
+      onClick={(e) => onSetResultSuggestion()}
     >
       <div>
         <img
