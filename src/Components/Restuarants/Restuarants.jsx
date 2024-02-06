@@ -56,11 +56,10 @@ const Restuarants = () => {
     resinfoapi.data?.cards[1].card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
 
+  console.log(whatsonmind);
   // useEffect(()=>{
 
   // },searchText)
-
-  console.log(resinfoapi);
 
   const getUpdate = async () => {
     await fetch(updateAPI, {
@@ -116,15 +115,21 @@ const Restuarants = () => {
         </h1>
         <div className=" flex  overflow-x-scroll w-full space-x-2 no-scrollbar">
           {whatsonmind?.map((item) => {
+            const pattern = /\/collections\/(\d+)\?/;
+            const matches = item.action.link.match(pattern);
+            const collectionId = matches && matches[1];
+
             return (
               <div
                 key={item.id}
                 className="flex flex-col flex-shrink-0 justify-center items-center hover:scale-105"
               >
-                <img
-                  src={menuimage + item.imageId}
-                  className="w-36 h-40 object-cover"
-                />
+                <Link to={"/collections/" + collectionId}>
+                  <img
+                    src={menuimage + item.imageId}
+                    className="w-36 h-40 object-cover"
+                  />
+                </Link>
               </div>
             );
           })}

@@ -17,19 +17,29 @@ const Search = () => {
 
   const onSetResultSuggestion = () => {
     setresultSuggestion(true);
-    console.log(resultSuggestion);
+  };
+
+  const getSearchRes = async (dish) => {
+    const api = await fetch(searchAPI + dish)
+      .then((res) => res.json())
+      .then((res) => {
+        setsearchResults(res?.data?.suggestions);
+        navigate("/search?query=" + dish);
+      });
   };
 
   const onSearchRes = async (e) => {
     e.preventDefault();
 
-    const api = await fetch(searchAPI + searchText)
-      .then((res) => res.json())
-      .then((res) => {
-        setsearchResults(res.data.suggestions);
-        navigate("/search?query=" + searchText);
-      });
+    getSearchRes(searchText);
   };
+
+  useEffect(() => {
+    if (searchquery) {
+      setsearchText(searchquery);
+      getSearchRes(searchquery);
+    }
+  }, []);
 
   return (
     <div className="w-screen h-screen flex flex-col items-center overflow-y-scroll">
@@ -46,7 +56,7 @@ const Search = () => {
       </form>
 
       {!resultSuggestion ? (
-        searchResults.length > 0 ? (
+        searchResults?.length > 0 ? (
           <div className="w-[40%] mt-4 p-2">
             {searchResults.map((suggestion, i) => {
               return (
