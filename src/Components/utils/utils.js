@@ -22,3 +22,6 @@ export const searchResultDishes =
 
 export const searchResultRestuarant =
   "https://www.swiggy.com/dapi/restaurants/search/v3?lat=13.9299299&lng=75.568101&str=Pizza&submitAction=SUGGESTION%2C%22displayLabel%22%3A%22Dish%22%7D&selectedPLTab=RESTAURANT";
+
+export const whatsonmind =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.9299299&lng=75.568101&collection=";

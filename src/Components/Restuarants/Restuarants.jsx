@@ -80,6 +80,8 @@ const Restuarants = () => {
   };
 
   const getRestuarants = async () => {
+    console.log("dafad");
+
     await fetch(apiURL)
       .then((res) => res.json())
       .then((res) => {

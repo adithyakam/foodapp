@@ -3,7 +3,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <div className="bg-black   text-white p-4">
+    <div className="bg-black   text-white p-4 flex self-end">
       <div className="m-auto w-[80%] grid-row-1 grid grid-col-4">
         <div className="col-start-1 col-span-1 row-start-1 row-span-1 flex flex-col">
           <h1>Swiggy</h1>

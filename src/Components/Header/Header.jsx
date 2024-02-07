@@ -24,7 +24,9 @@ function Header() {
   return (
     <div className="flex justify-around align-middle shadow-header z-10 h-20 ">
       <div className="flex justify-around items-center p-4 	">
-        <img src={logo} className=" mr-10" />
+        <Link to={"/"}>
+          <img src={logo} className=" mr-10" />
+        </Link>
         <h1>shimoga</h1>
         <div className="">
           <img src={down} className=" ml-1" />

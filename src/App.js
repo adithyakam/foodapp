@@ -25,6 +25,8 @@ import userContext from "./Components/utils/userContext";
 import { store } from "./Components/Redux/store";
 import { Provider } from "react-redux";
 import LoginSideBar from "./Components/LoginSidebar/LoginSideBar";
+import Collections from "./Components/Collections/Collections";
+import Error from "./Components/Error/Error";
 
 function App() {
   const [name, setName] = useState("");
@@ -57,7 +59,9 @@ const Approuter = createBrowserRouter([
       {
         path: "/",
         element: <Restuarants />,
+        errorElement: <Error />,
       },
+
       {
         path: "/about",
         element: (
@@ -90,6 +94,7 @@ const Approuter = createBrowserRouter([
             <Cart />
           </Suspense>
         ),
+        errorElement: <Error />,
       },
       {
         path: "/restuarants/:id",
@@ -98,6 +103,7 @@ const Approuter = createBrowserRouter([
             <RestuarantDetails />
           </Suspense>
         ),
+        errorElement: <Error />,
       },
       {
         path: "/login",
@@ -106,6 +112,19 @@ const Approuter = createBrowserRouter([
             <LoginSideBar />
           </Suspense>
         ),
+      },
+      {
+        path: "/collections/:collectionid",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Collections />
+          </Suspense>
+        ),
+        errorElement: <Error />,
+      },
+      {
+        path: "*",
+        element: <Error />,
       },
     ],
   },
