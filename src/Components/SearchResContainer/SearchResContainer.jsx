@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const SearchResContainer = ({ searchText }) => {
   const [resSearch, setresSearch] = useState([]);
 
-  useEffect(async () => {
+  const getData = async () => {
     await fetch(searchResultRestuarant)
       .then((res) => res.json())
       .then((data) =>
@@ -14,6 +14,10 @@ const SearchResContainer = ({ searchText }) => {
           data.data.cards[0]?.groupedCard?.cardGroupMap?.RESTAURANT?.cards
         )
       );
+  };
+
+  useEffect(() => {
+    getData();
   }, []);
 
   console.log(resSearch);

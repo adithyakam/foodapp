@@ -19,6 +19,7 @@ import { addRes } from "../Redux/restuarantSlice";
 function RestuarantDetails() {
   const parms = useParams();
 
+  console.log(parms.id, "dffafdadfa");
   const dispatch = useDispatch();
 
   const resInfo = useFetch(`${apiRestuarants + parms.id}`);
@@ -34,9 +35,7 @@ function RestuarantDetails() {
       : setcategoryitemindex(index);
   };
 
-  console.log(resInfo);
-
-  if (resInfo === null) return <Shimmer />;
+  if (!resInfo) return <Shimmer />;
 
   const {
     info: {
@@ -63,10 +62,10 @@ function RestuarantDetails() {
       deliveryTime,
     })
   );
-
-  const { cards } = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   const { offers } =
-    resInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle;
+    resInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle || {};
+  const { cards } =
+    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR || {};
 
   return (
     <div className="w-1/2 m-auto">

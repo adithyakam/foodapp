@@ -9,7 +9,7 @@ const Collections = () => {
 
   const [collection, setcollection] = useState([]);
 
-  useEffect(async () => {
+  const getData = async () => {
     await fetch(
       whatsonmind + parms.collectionid + "&tags=&sortBy=&filters=&type=rcv2"
     )
@@ -17,6 +17,10 @@ const Collections = () => {
       .then((res) => {
         setcollection(res.data.cards);
       });
+  };
+
+  useEffect(() => {
+    getData();
   }, []);
 
   if (collection.length == 0) return <Shimmer />;

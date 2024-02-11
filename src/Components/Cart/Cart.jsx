@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import veg from "../../assets/Veg.svg";
 import nonveg from "../../assets/non-veg.svg";
 import bestseller from "../../assets/star-yellow.svg";
 import { menuimage } from "../utils/utils";
-import CartItem from "url:../CartItem/CartItem";
+import CartItem from "../CartItem/CartItem";
+// import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.items);
