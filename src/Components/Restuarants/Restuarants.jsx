@@ -56,7 +56,6 @@ const Restuarants = () => {
     resinfoapi.data?.cards[1].card?.card?.gridElements?.infoWithStyle
       ?.restaurants;
 
-  console.log(whatsonmind);
   // useEffect(()=>{
 
   // },searchText)
@@ -80,8 +79,6 @@ const Restuarants = () => {
   };
 
   const getRestuarants = async () => {
-    console.log("dafad");
-
     await fetch(apiURL)
       .then((res) => res.json())
       .then((res) => {

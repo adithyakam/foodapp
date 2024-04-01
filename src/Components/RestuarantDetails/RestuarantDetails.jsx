@@ -19,7 +19,6 @@ import { addRes } from "../Redux/restuarantSlice";
 function RestuarantDetails() {
   const parms = useParams();
 
-  console.log(parms.id, "dffafdadfa");
   const dispatch = useDispatch();
 
   const resInfo = useFetch(`${apiRestuarants + parms.id}`);
@@ -36,7 +35,6 @@ function RestuarantDetails() {
   };
 
   if (!resInfo) return <Shimmer />;
-
   const {
     info: {
       name,
@@ -48,7 +46,7 @@ function RestuarantDetails() {
       totalRatingsString,
       sla: { deliveryTime },
     },
-  } = resInfo?.data?.cards[0]?.card?.card;
+  } = resInfo?.data?.cards[2]?.card?.card;
 
   dispatch(
     addRes({
@@ -63,9 +61,13 @@ function RestuarantDetails() {
     })
   );
   const { offers } =
-    resInfo?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle || {};
+    resInfo?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle ||
+    resInfo?.data?.cards[2]?.card?.card?.info?.aggregatedDiscountInfo
+      ?.shortDescriptionList ||
+    {};
+
   const { cards } =
-    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR || {};
+    resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR || {};
 
   return (
     <div className="w-1/2 m-auto">
@@ -98,7 +100,7 @@ function RestuarantDetails() {
         </h1>
       </div>
       <div className="flex overflow-x-scroll flex-no-wrap items-start  no-scrollbar mb-4 p-2">
-        {offers.map((data) => {
+        {offers?.map((data) => {
           return (
             <div
               className="w-90 h-15  p-2 	border-1	mr-5 flex-none shadow-md"
@@ -129,7 +131,7 @@ function RestuarantDetails() {
       </div>
       <hr className="restuarant-detail-hr2 mt-2" />
       <div className="mt-4">
-        {cards.slice(1, -2).map((card, i) => {
+        {cards?.slice(1, -2).map((card, i) => {
           return (
             <MenuCategory
               key={card.card.card.title}

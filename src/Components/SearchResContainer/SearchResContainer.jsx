@@ -20,7 +20,6 @@ const SearchResContainer = ({ searchText }) => {
     getData();
   }, []);
 
-  console.log(resSearch);
   if (resSearch.length === 0) <div>Loading....</div>;
 
   return (
